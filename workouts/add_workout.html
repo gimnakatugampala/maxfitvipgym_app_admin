@@ -20,6 +20,9 @@
     <link href="../css/plugins/jasny/jasny-bootstrap.min.css" rel="stylesheet">
     <link href="../css/plugins/datapicker/datepicker3.css" rel="stylesheet">
 
+      <!-- FooTable -->
+      <link href="../css/plugins/footable/footable.core.css" rel="stylesheet">
+
      <!-- Ladda style -->
      <link href="../css/plugins/ladda/ladda-themeless.min.css" rel="stylesheet">
 
@@ -424,6 +427,9 @@
 <!-- Data picker -->
 <script src="../js/plugins/datapicker/bootstrap-datepicker.js"></script>
 
+<!-- FooTable -->
+<script src="../js/plugins/footable/footable.all.min.js"></script>
+
 
   <!-- DROPZONE -->
   <script src="../js/plugins/dropzone/dropzone.js"></script>
@@ -505,6 +511,17 @@
     });
 
 </script>
+
+    <!-- Page-Level Scripts -->
+    <script>
+        $(document).ready(function() {
+
+            $('.footable').footable();
+            $('.footable2').footable();
+
+        });
+
+    </script>
 
 </body>
 

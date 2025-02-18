@@ -6,7 +6,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Maxfit VIP Gym | Workout List</title>
+    <title>Maxfit VIP Gym | Edit Workout</title>
 
     <link href="../css/bootstrap.min.css" rel="stylesheet">
     <link href="../font-awesome/css/font-awesome.css" rel="stylesheet">
@@ -20,8 +20,8 @@
     <link href="../css/plugins/jasny/jasny-bootstrap.min.css" rel="stylesheet">
     <link href="../css/plugins/datapicker/datepicker3.css" rel="stylesheet">
 
-       <!-- FooTable -->
-       <link href="../css/plugins/footable/footable.core.css" rel="stylesheet">
+      <!-- FooTable -->
+      <link href="../css/plugins/footable/footable.core.css" rel="stylesheet">
 
      <!-- Ladda style -->
      <link href="../css/plugins/ladda/ladda-themeless.min.css" rel="stylesheet">
@@ -74,8 +74,8 @@
                 <li class="active">
                     <a href="mailbox.html"><i class="fa fa-envelope"></i> <span class="nav-label">Manage Workout </span><span class="fa arrow"></span></a>
                     <ul class="nav nav-second-level collapse">
-                        <li class="active"><a href="../workouts">Workout List</a></li>
-                        <li><a href="../workouts/add_workout.html">Add Workout</a></li>
+                        <li><a href="../workouts">Workout List</a></li>
+                        <li class="active"><a href="../workouts/add_workout.html">Add Workout</a></li>
                     </ul>
                 </li>
 
@@ -224,7 +224,7 @@
         </div>
         <div class="row wrapper border-bottom white-bg page-heading">
             <div class="col-lg-10">
-                <h2>Workout List</h2>
+                <h2>Add Workout</h2>
                 <ol class="breadcrumb">
                     <li class="breadcrumb-item">
                         <a href="index.html">Home</a>
@@ -233,77 +233,168 @@
                         <a>Workouts</a>
                     </li>
                     <li class="breadcrumb-item active">
-                        <strong>Workout List</strong>
+                        <strong>Edit Workout</strong>
                     </li>
                 </ol>
             </div>
         </div>
 
         <div class="wrapper wrapper-content animated fadeInRight ecommerce">
+
             <div class="row">
                 <div class="col-lg-12">
-                    <div class="ibox ">
-                        <div class="ibox-title">
-                            <h5>Workout List</h5>
+                    <div class="tabs-container">
+                            <ul class="nav nav-tabs">
+                                <li><a class="nav-link active" data-toggle="tab" href="#tab-1"> Workout info</a></li>
+                                <li><a class="nav-link" data-toggle="tab" href="#tab-2"> Videos</a></li>
+                            </ul>
+                            <div class="tab-content">
+                                <div id="tab-1" class="tab-pane active">
+                                    <div class="panel-body">
 
-                            <div class="ibox-tools">
-                                <a class="collapse-link">
-                                    <i class="fa fa-chevron-up"></i>
-                                </a>
-                                <a class="dropdown-toggle" data-toggle="dropdown" href="#">
-                                    <i class="fa fa-wrench"></i>
-                                </a>
-                                <ul class="dropdown-menu dropdown-user">
-                                    <li><a href="#" class="dropdown-item">Config option 1</a>
-                                    </li>
-                                    <li><a href="#" class="dropdown-item">Config option 2</a>
-                                    </li>
-                                </ul>
-                                <a class="close-link">
-                                    <i class="fa fa-times"></i>
-                                </a>
+                                        <fieldset>
+                                            <div class="form-group row"><label class="col-sm-2 col-form-label">Image <span class="text-danger">*</span></label>
+                                                <div class="col-sm-10"><input type="file" class="form-control" ></div>
+                                            </div>
+
+                                            <div class="form-group row"><label class="col-sm-2 col-form-label">Name<span class="text-danger">*</span>:</label>
+                                                <div class="col-sm-10"><input type="text" class="form-control" placeholder="Workout name"></div>
+                                            </div>
+
+                                            <div class="form-group row"><label class="col-sm-2 col-form-label">Workout Type<span class="text-danger">*</span>:</label>
+                                                <div class="col-sm-10">
+                                                    <div class="i-checks"><label> <input type="radio" value="option1" name="a"> <i></i> By Set </label></div>
+                                                    <div class="i-checks"><label> <input type="radio" checked="" value="option2" name="a"> <i></i> By Duration </label></div>
+                                                </div>
+                                            </div>
+
+                                            <div class="form-group row">
+                                            <div class="col-sm-6">
+                                                <button class="ladda-button btn btn-primary" data-style="expand-right">Update</button>
+                                            </div>
+                                            </div>
+                                           
+                                        </fieldset>
+
+                                    </div>
+                                </div>
+
+                                <div id="tab-2" class="tab-pane">
+                                    <div class="panel-body">
+
+                                        <div class="table-responsive">
+                                            <table class="table table-bordered table-stripped">
+                                                <thead>
+                                                <tr>
+                                                    <th>
+                                                        Video preview
+                                                    </th>
+                                                    <th>
+                                                        Youtube url
+                                                    </th>
+                                                </tr>
+                                                </thead>
+                                                <tbody>
+                                                <tr>
+                                                    <td>
+                                                        <figure>
+                                                            <iframe width="200" height="100" src="http://www.youtube.com/embed/bwj2s_5e12U" frameborder="0" allowfullscreen></iframe>
+                                                        </figure>
+                                                    </td>
+                                                    <td>
+                                                        <input type="text" class="form-control"  value="http://mydomain.com/images/image1.png">
+                                                    </td>
+                                                   
+                                                  
+                                                </tr>
+                                                <tr>
+                                                    <td>
+                                                        <figure>
+                                                            <iframe width="200" height="100" src="http://www.youtube.com/embed/bwj2s_5e12U" frameborder="0" allowfullscreen></iframe>
+                                                        </figure>
+                                                    </td>
+                                                    <td>
+                                                        <input type="text" class="form-control"  value="http://mydomain.com/images/image2.png">
+                                                    </td>
+                                                   
+                                                  
+                                                </tr>
+                                                <tr>
+                                                    <td>
+                                                        <figure>
+                                                            <iframe width="200" height="100" src="http://www.youtube.com/embed/bwj2s_5e12U" frameborder="0" allowfullscreen></iframe>
+                                                        </figure>
+                                                    </td>
+                                                    <td>
+                                                        <input type="text" class="form-control"  value="http://mydomain.com/images/image3.png">
+                                                    </td>
+                                                  
+                                                </tr>
+                                                <tr>
+                                                    <td>
+                                                        <figure>
+                                                            <iframe width="200" height="100" src="http://www.youtube.com/embed/bwj2s_5e12U" frameborder="0" allowfullscreen></iframe>
+                                                        </figure>
+                                                    </td>
+                                                    <td>
+                                                        <input type="text" class="form-control"  value="http://mydomain.com/images/image4.png">
+                                                    </td>
+                                                   
+                                                  
+                                                </tr>
+                                                <tr>
+                                                    <td>
+                                                        <figure>
+                                                            <iframe width="200" height="100" src="http://www.youtube.com/embed/bwj2s_5e12U" frameborder="0" allowfullscreen></iframe>
+                                                        </figure>
+                                                    </td>
+                                                    <td>
+                                                        <input type="text" class="form-control"  value="http://mydomain.com/images/image5.png">
+                                                    </td>
+                                                    
+                                                    
+                                                </tr>
+                                                <tr>
+                                                    <td>
+                                                        <figure>
+                                                            <iframe width="200" height="100" src="http://www.youtube.com/embed/bwj2s_5e12U" frameborder="0" allowfullscreen></iframe>
+                                                        </figure>
+                                                    </td>
+                                                    <td>
+                                                        <input type="text" class="form-control"  value="http://mydomain.com/images/image6.png">
+                                                    </td>
+                                                   
+                                                
+                                                </tr>
+                                                <tr>
+                                                    <td>
+                                                        <figure>
+                                                            <iframe width="200" height="100" src="http://www.youtube.com/embed/bwj2s_5e12U" frameborder="0" allowfullscreen></iframe>
+                                                        </figure>
+                                                    </td>
+                                                    <td>
+                                                        <input type="text" class="form-control"  value="http://mydomain.com/images/image7.png">
+                                                    </td>
+                                                    
+                                                    
+                                                </tr>
+                                                </tbody>
+                                            </table>
+                                        </div>
+
+                                        <div class="form-group row">
+                                            <div class="col-sm-6">
+                                                <button class="ladda-button btn btn-primary" data-style="expand-right">Update</button>
+                                            </div>
+                                            </div>
+
+                                    </div>
+                                </div>
                             </div>
-                        </div>
-                        <div class="ibox-content">
-                            <input type="text" class="form-control form-control-sm m-b-xs" id="filter"
-                                   placeholder="Search in table">
-
-                            <table class="footable table table-stripped" data-page-size="8" data-filter=#filter>
-                                <thead>
-                                <tr>
-                                    <th>Image</th>
-                                    <th>Title</th>
-                                    <th>Workout Type</th>
-                                    <th>Actions</th>
-                                </tr>
-                                </thead>
-                                <tbody>
-                                <tr class="gradeX">
-                                    <td><img alt="image" class="rounded-circle" src="../img/profile_small.jpg"/></td>
-                                    <td>Bench Press</td>
-                                    <td>By Duration</td>
-                                    <td class="center"><a href="../workouts/edit_workout.html" type="button" class="btn btn-success"><i class="fa fa-pencil" aria-hidden="true"></i>                                    </a></td>
-                                </tr>
-                                <tr class="gradeC">
-                                    <td><img alt="image" class="rounded-circle" src="../img/profile_small.jpg"/></td>
-                                    <td>Bench Press II</td>
-                                    <td>By Set</td>
-                                    <td class="center"><a href="../workouts/edit_workout.html" type="button" class="btn btn-success"><i class="fa fa-pencil" aria-hidden="true"></i></a></td>
-                                </tr>
-
-                                </tbody>
-                                <tfoot>
-                                <tr>
-                                    <td colspan="5">
-                                        <ul class="pagination float-right"></ul>
-                                    </td>
-                                </tr>
-                                </tfoot>
-                            </table>
-                        </div>
                     </div>
                 </div>
             </div>
+
         </div>
         <div class="footer">
             <div class="float-right">
@@ -330,14 +421,14 @@
 <script src="../js/inspinia.js"></script>
 <script src="../js/plugins/pace/pace.min.js"></script>
 
-<!-- FooTable -->
-<script src="../js/plugins/footable/footable.all.min.js"></script>
-
 <!-- SUMMERNOTE -->
 <script src="../js/plugins/summernote/summernote-bs4.js"></script>
 
 <!-- Data picker -->
 <script src="../js/plugins/datapicker/bootstrap-datepicker.js"></script>
+
+<!-- FooTable -->
+<script src="../js/plugins/footable/footable.all.min.js"></script>
 
 
   <!-- DROPZONE -->
@@ -420,7 +511,6 @@
     });
 
 </script>
-
 
     <!-- Page-Level Scripts -->
     <script>

@@ -6,7 +6,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Maxfit VIP Gym | Admin List</title>
+    <title>Maxfit VIP Gym | Workout List</title>
 
     <link href="../css/bootstrap.min.css" rel="stylesheet">
     <link href="../font-awesome/css/font-awesome.css" rel="stylesheet">
@@ -39,66 +39,7 @@
 
 <div id="wrapper">
 
-    <nav class="navbar-default navbar-static-side" role="navigation">
-        <div class="sidebar-collapse">
-            <ul class="nav metismenu" id="side-menu">
-                <li class="nav-header">
-                    <div class="dropdown profile-element">
-                        <img alt="image" class="rounded-circle" src="../img/profile_small.jpg"/>
-                        <a data-toggle="dropdown" class="dropdown-toggle" href="#">
-                            <span class="block m-t-xs font-bold">David Williams</span>
-                            <span class="text-muted text-xs block">Art Director <b class="caret"></b></span>
-                        </a>
-                        <ul class="dropdown-menu animated fadeInRight m-t-xs">
-                            <li><a class="dropdown-item" href="/profile.html">Profile</a></li>
-                            <li><a class="dropdown-item" href="contacts.html">Contacts</a></li>
-                            <li><a class="dropdown-item" href="mailbox.html">Mailbox</a></li>
-                            <li class="dropdown-divider"></li>
-                            <li><a class="dropdown-item" href="login.html">Logout</a></li>
-                        </ul>
-                    </div>
-                    <div class="logo-element">
-                        IN+
-                    </div>
-                </li>
-                <li>
-                    <a href="index.html"><i class="fa fa-th-large"></i> <span class="nav-label">Dashboards</span></a>
-                </li>
-                <li>
-                    <a href="#"><i class="fa fa-bar-chart-o"></i> <span class="nav-label">Manage Admin</span><span class="fa arrow"></span></a>
-                    <ul class="nav nav-second-level collapse">
-                        <li><a href="graph_flot.html">Add Admin</a></li>
-                        <li><a href="../admin/">Admin List</a></li>
-                    </ul>
-                </li>
-                <li class="active">
-                    <a href="mailbox.html"><i class="fa fa-envelope"></i> <span class="nav-label">Manage Workout </span><span class="fa arrow"></span></a>
-                    <ul class="nav nav-second-level collapse">
-                        <li class="active"><a href="../workouts">Workout List</a></li>
-                        <li><a href="../workouts/add_workout.html">Add Workout</a></li>
-                    </ul>
-                </li>
-
-                <li>
-                    <a href="#"><i class="fa fa-edit"></i> <span class="nav-label">Workout Schedule</span><span class="fa arrow"></span></a>
-                    <ul class="nav nav-second-level collapse">
-                        <li><a href="form_basic.html">Add Workout Schedule</a></li>
-                        <li><a href="form_advanced.html">Workout Schedule List</a></li>
-                        <li><a href="form_wizard.html">Assign Schedule</a></li>
-                    </ul>
-                </li>
-                
-
-
-                <li>
-                    <a href="grid_options.html"><i class="fa fa-laptop"></i> <span class="nav-label">Members</span></a>
-                </li>
-           
-        
-            </ul>
-
-        </div>
-    </nav>
+    <?php include '../includes/sidebar.php'; ?>
 
     <div id="page-wrapper" class="gray-bg">
         <div class="row border-bottom">
@@ -224,16 +165,16 @@
         </div>
         <div class="row wrapper border-bottom white-bg page-heading">
             <div class="col-lg-10">
-                <h2>Admin List</h2>
+                <h2>Workout List</h2>
                 <ol class="breadcrumb">
                     <li class="breadcrumb-item">
                         <a href="index.html">Home</a>
                     </li>
                     <li class="breadcrumb-item">
-                        <a>Admin</a>
+                        <a>Workouts</a>
                     </li>
                     <li class="breadcrumb-item active">
-                        <strong>Admin List</strong>
+                        <strong>Workout List</strong>
                     </li>
                 </ol>
             </div>
@@ -244,7 +185,7 @@
                 <div class="col-lg-12">
                     <div class="ibox ">
                         <div class="ibox-title">
-                            <h5>Admin List</h5>
+                            <h5>Workout List</h5>
 
                             <div class="ibox-tools">
                                 <a class="collapse-link">
@@ -271,41 +212,24 @@
                             <table class="footable table table-stripped" data-page-size="8" data-filter=#filter>
                                 <thead>
                                 <tr>
-                                    <th>#ID</th>
-                                    <th>Full Name</th>
-                                    <th>Email</th>
-                                    <th>Last Login</th>
-                                    <th>Status</th>
-                                    <th>created by</th>
+                                    <th>Image</th>
+                                    <th>Title</th>
+                                    <th>Workout Type</th>
                                     <th>Actions</th>
                                 </tr>
                                 </thead>
                                 <tbody>
                                 <tr class="gradeX">
-                                    <td>1</td>
-                                    <td>GIMNA KATUGAMPALA</td>
-                                    <td>gimnakatugampala@gmail.com</td>
-                                    <td>20 min ago</td>
-                                    <td></td>
-                                    <td>ADMIN</td>
-                                    <td class="center">
-                                        <button type="button" class="btn btn-success"><i class="fa fa-eye" aria-hidden="true"></i></button>
-                                        <button class="btn btn-danger " type="button"><i class="fa fa-times" aria-hidden="true"></i></button>
-                                        <button class="btn btn-primary " type="button"><i class="fa fa-check" aria-hidden="true"></i></button>
-                                    </td>
+                                    <td><img alt="image" class="rounded-circle" src="../img/profile_small.jpg"/></td>
+                                    <td>Bench Press</td>
+                                    <td>By Duration</td>
+                                    <td class="center"><a href="../workouts/edit_workout.html" type="button" class="btn btn-success"><i class="fa fa-pencil" aria-hidden="true"></i>                                    </a></td>
                                 </tr>
                                 <tr class="gradeC">
-                                    <td>2</td>
-                                    <td>GIMNA KATUGAMPALA</td>
-                                    <td>gimnaktest@gmail.com</td>
-                                    <td>20 min ago</td>
-                                    <td></td>
-                                    <td>ADMIN</td>
-                                    <td class="center">
-                                        <button type="button" class="btn btn-success"><i class="fa fa-eye" aria-hidden="true"></i></button>
-                                        <button class="btn btn-danger " type="button"><i class="fa fa-times" aria-hidden="true"></i></button>
-                                        <button class="btn btn-primary " type="button"><i class="fa fa-check" aria-hidden="true"></i></button>
-                                    </td>
+                                    <td><img alt="image" class="rounded-circle" src="../img/profile_small.jpg"/></td>
+                                    <td>Bench Press II</td>
+                                    <td>By Set</td>
+                                    <td class="center"><a href="../workouts/edit_workout.html" type="button" class="btn btn-success"><i class="fa fa-pencil" aria-hidden="true"></i></a></td>
                                 </tr>
 
                                 </tbody>

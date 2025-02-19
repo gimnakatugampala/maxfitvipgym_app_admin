@@ -6,7 +6,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Maxfit VIP Gym | Workout List</title>
+    <title>Maxfit VIP Gym | Add Admin</title>
 
     <link href="../css/bootstrap.min.css" rel="stylesheet">
     <link href="../font-awesome/css/font-awesome.css" rel="stylesheet">
@@ -20,8 +20,8 @@
     <link href="../css/plugins/jasny/jasny-bootstrap.min.css" rel="stylesheet">
     <link href="../css/plugins/datapicker/datepicker3.css" rel="stylesheet">
 
-       <!-- FooTable -->
-       <link href="../css/plugins/footable/footable.core.css" rel="stylesheet">
+      <!-- FooTable -->
+      <link href="../css/plugins/footable/footable.core.css" rel="stylesheet">
 
      <!-- Ladda style -->
      <link href="../css/plugins/ladda/ladda-themeless.min.css" rel="stylesheet">
@@ -39,66 +39,7 @@
 
 <div id="wrapper">
 
-    <nav class="navbar-default navbar-static-side" role="navigation">
-        <div class="sidebar-collapse">
-            <ul class="nav metismenu" id="side-menu">
-                <li class="nav-header">
-                    <div class="dropdown profile-element">
-                        <img alt="image" class="rounded-circle" src="../img/profile_small.jpg"/>
-                        <a data-toggle="dropdown" class="dropdown-toggle" href="#">
-                            <span class="block m-t-xs font-bold">David Williams</span>
-                            <span class="text-muted text-xs block">Art Director <b class="caret"></b></span>
-                        </a>
-                        <ul class="dropdown-menu animated fadeInRight m-t-xs">
-                            <li><a class="dropdown-item" href="/profile.html">Profile</a></li>
-                            <li><a class="dropdown-item" href="contacts.html">Contacts</a></li>
-                            <li><a class="dropdown-item" href="mailbox.html">Mailbox</a></li>
-                            <li class="dropdown-divider"></li>
-                            <li><a class="dropdown-item" href="login.html">Logout</a></li>
-                        </ul>
-                    </div>
-                    <div class="logo-element">
-                        IN+
-                    </div>
-                </li>
-                <li>
-                    <a href="index.html"><i class="fa fa-th-large"></i> <span class="nav-label">Dashboards</span></a>
-                </li>
-                <li>
-                    <a href="#"><i class="fa fa-bar-chart-o"></i> <span class="nav-label">Manage Admin</span><span class="fa arrow"></span></a>
-                    <ul class="nav nav-second-level collapse">
-                        <li><a href="graph_flot.html">Add Admin</a></li>
-                        <li><a href="../admin/">Admin List</a></li>
-                    </ul>
-                </li>
-                <li class="active">
-                    <a href="mailbox.html"><i class="fa fa-envelope"></i> <span class="nav-label">Manage Workout </span><span class="fa arrow"></span></a>
-                    <ul class="nav nav-second-level collapse">
-                        <li class="active"><a href="../workouts">Workout List</a></li>
-                        <li><a href="../workouts/add_workout.html">Add Workout</a></li>
-                    </ul>
-                </li>
-
-                <li>
-                    <a href="#"><i class="fa fa-edit"></i> <span class="nav-label">Workout Schedule</span><span class="fa arrow"></span></a>
-                    <ul class="nav nav-second-level collapse">
-                        <li><a href="form_basic.html">Add Workout Schedule</a></li>
-                        <li><a href="form_advanced.html">Workout Schedule List</a></li>
-                        <li><a href="form_wizard.html">Assign Schedule</a></li>
-                    </ul>
-                </li>
-                
-
-
-                <li>
-                    <a href="grid_options.html"><i class="fa fa-laptop"></i> <span class="nav-label">Members</span></a>
-                </li>
-           
-        
-            </ul>
-
-        </div>
-    </nav>
+<?php include '../includes/sidebar.php'; ?>
 
     <div id="page-wrapper" class="gray-bg">
         <div class="row border-bottom">
@@ -224,87 +165,80 @@
         </div>
         <div class="row wrapper border-bottom white-bg page-heading">
             <div class="col-lg-10">
-                <h2>Workout List</h2>
+                <h2>Add Admin</h2>
                 <ol class="breadcrumb">
                     <li class="breadcrumb-item">
                         <a href="index.html">Home</a>
                     </li>
                     <li class="breadcrumb-item">
-                        <a>Workouts</a>
+                        <a>Admin</a>
                     </li>
                     <li class="breadcrumb-item active">
-                        <strong>Workout List</strong>
+                        <strong>Add Admin</strong>
                     </li>
                 </ol>
             </div>
         </div>
 
-        <div class="wrapper wrapper-content animated fadeInRight ecommerce">
-            <div class="row">
+        <!-- <div class="wrapper wrapper-content animated fadeInRight ecommerce"> -->
+
+            <div class="row wrapper wrapper-content animated fadeInRight">
+          
                 <div class="col-lg-12">
                     <div class="ibox ">
-                        <div class="ibox-title">
-                            <h5>Workout List</h5>
+                        <div class="wrapper wrapper-content animated fadeInRight ecommerce">
 
-                            <div class="ibox-tools">
-                                <a class="collapse-link">
-                                    <i class="fa fa-chevron-up"></i>
-                                </a>
-                                <a class="dropdown-toggle" data-toggle="dropdown" href="#">
-                                    <i class="fa fa-wrench"></i>
-                                </a>
-                                <ul class="dropdown-menu dropdown-user">
-                                    <li><a href="#" class="dropdown-item">Config option 1</a>
-                                    </li>
-                                    <li><a href="#" class="dropdown-item">Config option 2</a>
-                                    </li>
-                                </ul>
-                                <a class="close-link">
-                                    <i class="fa fa-times"></i>
-                                </a>
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="card">
+                        <div>
+                            <fieldset class="p-4">
+                            <legend><h2>Add Admin</h2></legend>
+
+                            <div class="form-group row">
+                                <div class="col-sm-10">
+                                <label class="col-form-label">Full Name <span class="text-danger">*</span>:</label>
+                                    <input type="text" class="form-control" >
+                                </div>
                             </div>
-                        </div>
-                        <div class="ibox-content">
-                            <input type="text" class="form-control form-control-sm m-b-xs" id="filter"
-                                   placeholder="Search in table">
+                            <div class="form-group row">
+                                <div class="col-sm-10">
+                                <label class="col-form-label">Email <span class="text-danger">*</span>:</label>
+                                    <input type="email" class="form-control" >
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <div class="col-sm-10">
+                                <label class="col-form-label">Password <span class="text-danger">*</span>:</label>
+                                    <input type="password" class="form-control" >
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <div class="col-sm-10">
+                                <label class="col-form-label">Confirm Password <span class="text-danger">*</span>:</label>
+                                    <input type="password" class="form-control" >
+                                </div>
+                            </div>
 
-                            <table class="footable table table-stripped" data-page-size="8" data-filter=#filter>
-                                <thead>
-                                <tr>
-                                    <th>Image</th>
-                                    <th>Title</th>
-                                    <th>Workout Type</th>
-                                    <th>Actions</th>
-                                </tr>
-                                </thead>
-                                <tbody>
-                                <tr class="gradeX">
-                                    <td><img alt="image" class="rounded-circle" src="../img/profile_small.jpg"/></td>
-                                    <td>Bench Press</td>
-                                    <td>By Duration</td>
-                                    <td class="center"><a href="../workouts/edit_workout.html" type="button" class="btn btn-success"><i class="fa fa-pencil" aria-hidden="true"></i>                                    </a></td>
-                                </tr>
-                                <tr class="gradeC">
-                                    <td><img alt="image" class="rounded-circle" src="../img/profile_small.jpg"/></td>
-                                    <td>Bench Press II</td>
-                                    <td>By Set</td>
-                                    <td class="center"><a href="../workouts/edit_workout.html" type="button" class="btn btn-success"><i class="fa fa-pencil" aria-hidden="true"></i></a></td>
-                                </tr>
-
-                                </tbody>
-                                <tfoot>
-                                <tr>
-                                    <td colspan="5">
-                                        <ul class="pagination float-right"></ul>
-                                    </td>
-                                </tr>
-                                </tfoot>
-                            </table>
-                        </div>
+                            <button class="ladda-button btn btn-primary" data-style="expand-right">Submit</button>
+                           
+                          
+                            
+                        </fieldset>
+                        
                     </div>
+                    
                 </div>
             </div>
+
         </div>
+                    </div>
+                </div>
+            
+                
+            </div>
+
+
         <div class="footer">
             <div class="float-right">
                 10GB of <strong>250GB</strong> Free.
@@ -314,7 +248,7 @@
             </div>
         </div>
 
-    </div>
+    <!-- </div> -->
 </div>
 
 
@@ -330,14 +264,14 @@
 <script src="../js/inspinia.js"></script>
 <script src="../js/plugins/pace/pace.min.js"></script>
 
-<!-- FooTable -->
-<script src="../js/plugins/footable/footable.all.min.js"></script>
-
 <!-- SUMMERNOTE -->
 <script src="../js/plugins/summernote/summernote-bs4.js"></script>
 
 <!-- Data picker -->
 <script src="../js/plugins/datapicker/bootstrap-datepicker.js"></script>
+
+<!-- FooTable -->
+<script src="../js/plugins/footable/footable.all.min.js"></script>
 
 
   <!-- DROPZONE -->
@@ -420,7 +354,6 @@
     });
 
 </script>
-
 
     <!-- Page-Level Scripts -->
     <script>

@@ -21,12 +21,12 @@
                     </div>
                 </li>
                 <li>
-                    <a href="index.html"><i class="fa fa-th-large"></i> <span class="nav-label">Dashboards</span></a>
+                    <a href="../dashboard/"><i class="fa fa-th-large"></i> <span class="nav-label">Dashboards</span></a>
                 </li>
                 <li>
                     <a href="#"><i class="fa fa-bar-chart-o"></i> <span class="nav-label">Manage Admin</span><span class="fa arrow"></span></a>
                     <ul class="nav nav-second-level collapse">
-                        <li><a href="graph_flot.html">Add Admin</a></li>
+                        <li><a href="../admin/add_admin.php">Add Admin</a></li>
                         <li><a href="../admin/">Admin List</a></li>
                     </ul>
                 </li>
@@ -34,7 +34,7 @@
                     <a href="mailbox.html"><i class="fa fa-envelope"></i> <span class="nav-label">Manage Workout </span><span class="fa arrow"></span></a>
                     <ul class="nav nav-second-level collapse">
                         <li class="active"><a href="../workouts">Workout List</a></li>
-                        <li><a href="../workouts/add_workout.html">Add Workout</a></li>
+                        <li><a href="../workouts/add_workout.php">Add Workout</a></li>
                     </ul>
                 </li>
 
@@ -50,7 +50,7 @@
 
 
                 <li>
-                    <a href="grid_options.html"><i class="fa fa-laptop"></i> <span class="nav-label">Members</span></a>
+                    <a href="../members/"><i class="fa fa-laptop"></i> <span class="nav-label">Members</span></a>
                 </li>
            
         

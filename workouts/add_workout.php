@@ -208,14 +208,14 @@
 
 <?php include '../includes/footer.php';?>
 
-        <script>
-            $(document).ready(function () {
-                $('.i-checks').iCheck({
-                    checkboxClass: 'icheckbox_square-green',
-                    radioClass: 'iradio_square-green',
-                });
+    <script>
+        $(document).ready(function () {
+            $('.i-checks').iCheck({
+                checkboxClass: 'icheckbox_square-green',
+                radioClass: 'iradio_square-green',
             });
-        </script>
+        });
+    </script>
 
 <script>
     $(document).ready(function(){

@@ -42,11 +42,37 @@
   <script src="../js/inspinia.js"></script>
   <script src="../js/plugins/pace/pace.min.js"></script>
 
-      <!-- Flot demo data -->
-      <script src="../js/demo/flot-demo.js"></script>
+<!-- Flot demo data -->
+<script src="../js/demo/flot-demo.js"></script>
 
-    <script src="../js/plugins/dataTables/datatables.min.js"></script>
-    <script src="../js/plugins/dataTables/dataTables.bootstrap4.min.js"></script>
+<script src="../js/plugins/dataTables/datatables.min.js"></script>
+<script src="../js/plugins/dataTables/dataTables.bootstrap4.min.js"></script>
+
+<!-- SUMMERNOTE -->
+<script src="../js/plugins/summernote/summernote-bs4.js"></script>
+
+<!-- Data picker -->
+<script src="../js/plugins/datapicker/bootstrap-datepicker.js"></script>
+
+<!-- FooTable -->
+<script src="../js/plugins/footable/footable.all.min.js"></script>
+
+
+  <!-- DROPZONE -->
+  <script src="../js/plugins/dropzone/dropzone.js"></script>
+
+
+      <!-- Ladda -->
+      <script src="../js/plugins/ladda/spin.min.js"></script>
+      <script src="../js/plugins/ladda/ladda.min.js"></script>
+      <script src="../js/plugins/ladda/ladda.jquery.min.js"></script>
+
+
+    <!-- iCheck -->
+    <script src="../js/plugins/iCheck/icheck.min.js"></script>
 
     <!-- slick carousel-->
 <script src="../js/plugins/slick/slick.min.js"></script>
+
+<!-- Flot demo data -->
+<script src="../js/demo/flot-demo.js"></script>

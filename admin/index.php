@@ -131,48 +131,16 @@
 </div>
 
 
+<?php include '../includes/footer.php'; ?>
 
-<!-- Mainly scripts -->
-<script src="../js/jquery-3.1.1.min.js"></script>
-<script src="../js/popper.min.js"></script>
-    <script src="../js/bootstrap.js"></script>
-<script src="../js/plugins/metisMenu/jquery.metisMenu.js"></script>
-<script src="../js/plugins/slimscroll/jquery.slimscroll.min.js"></script>
-
-<!-- Custom and plugin javascript -->
-<script src="../js/inspinia.js"></script>
-<script src="../js/plugins/pace/pace.min.js"></script>
-
-<!-- FooTable -->
-<script src="../js/plugins/footable/footable.all.min.js"></script>
-
-<!-- SUMMERNOTE -->
-<script src="../js/plugins/summernote/summernote-bs4.js"></script>
-
-<!-- Data picker -->
-<script src="../js/plugins/datapicker/bootstrap-datepicker.js"></script>
-
-
-  <!-- DROPZONE -->
-  <script src="../js/plugins/dropzone/dropzone.js"></script>
-
-
-      <!-- Ladda -->
-      <script src="../js/plugins/ladda/spin.min.js"></script>
-      <script src="../js/plugins/ladda/ladda.min.js"></script>
-      <script src="../js/plugins/ladda/ladda.jquery.min.js"></script>
-
-
-    <!-- iCheck -->
-    <script src="../js/plugins/iCheck/icheck.min.js"></script>
-        <script>
-            $(document).ready(function () {
-                $('.i-checks').iCheck({
-                    checkboxClass: 'icheckbox_square-green',
-                    radioClass: 'iradio_square-green',
-                });
-            });
-        </script>
+<script>
+    $(document).ready(function () {
+        $('.i-checks').iCheck({
+            checkboxClass: 'icheckbox_square-green',
+            radioClass: 'iradio_square-green',
+        });
+    });
+</script>
 
 <script>
     $(document).ready(function(){
@@ -235,16 +203,16 @@
 </script>
 
 
-    <!-- Page-Level Scripts -->
-    <script>
-        $(document).ready(function() {
+<!-- Page-Level Scripts -->
+<script>
+    $(document).ready(function() {
 
-            $('.footable').footable();
-            $('.footable2').footable();
+        $('.footable').footable();
+        $('.footable2').footable();
 
-        });
+    });
 
-    </script>
+</script>
 
 </body>
 

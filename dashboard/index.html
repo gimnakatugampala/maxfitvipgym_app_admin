@@ -20,6 +20,9 @@
     <link href="../css/plugins/jasny/jasny-bootstrap.min.css" rel="stylesheet">
     <link href="../css/plugins/datapicker/datepicker3.css" rel="stylesheet">
 
+    <link href="../css/animate.css" rel="stylesheet">
+    <link href="../css/style.css" rel="stylesheet">
+
       <!-- FooTable -->
       <link href="../css/plugins/footable/footable.core.css" rel="stylesheet">
 
@@ -227,34 +230,34 @@
                     <div class="col-lg-3">
                         <div class="ibox ">
                             <div class="ibox-title">
-                                <span class="label label-success float-right">Monthly</span>
-                                <h5>Income</h5>
+                                <!-- <span class="label label-success float-right">Monthly</span> -->
+                                <h5>Total No of Members</h5>
                             </div>
                             <div class="ibox-content">
                                 <h1 class="no-margins">40 886,200</h1>
-                                <div class="stat-percent font-bold text-success">98% <i class="fa fa-bolt"></i></div>
-                                <small>Total income</small>
+                                <!-- <div class="stat-percent font-bold text-success">98% <i class="fa fa-bolt"></i></div> -->
+                                <small>Since 2025</small>
                             </div>
                         </div>
                     </div>
                     <div class="col-lg-3">
                         <div class="ibox ">
                             <div class="ibox-title">
-                                <span class="label label-info float-right">Annual</span>
-                                <h5>Orders</h5>
+                                <!-- <span class="label label-info float-right">Annual</span> -->
+                                <h5>Monthly Active Members</h5>
                             </div>
                             <div class="ibox-content">
                                 <h1 class="no-margins">275,800</h1>
                                 <div class="stat-percent font-bold text-info">20% <i class="fa fa-level-up"></i></div>
-                                <small>New orders</small>
+                                <small>Month of February</small>
                             </div>
                         </div>
                     </div>
                     <div class="col-lg-3">
                         <div class="ibox ">
                             <div class="ibox-title">
-                                <span class="label label-primary float-right">Today</span>
-                                <h5>visits</h5>
+                                <!-- <span class="label label-primary float-right">Today</span> -->
+                                <h5>Daily Active Users</h5>
                             </div>
                             <div class="ibox-content">
                                 <h1 class="no-margins">106,120</h1>
@@ -266,71 +269,102 @@
                     <div class="col-lg-3">
                         <div class="ibox ">
                             <div class="ibox-title">
-                                <span class="label label-danger float-right">Low value</span>
-                                <h5>User activity</h5>
+                                <!-- <span class="label label-danger float-right">Low value</span> -->
+                                <h5>Average Time Workouts</h5>
                             </div>
                             <div class="ibox-content">
                                 <h1 class="no-margins">80,600</h1>
-                                <div class="stat-percent font-bold text-danger">38% <i class="fa fa-level-down"></i></div>
-                                <small>In first month</small>
+                                <!-- <div class="stat-percent font-bold text-danger">38% <i class="fa fa-level-down"></i></div> -->
+                                <!-- <small>In first month</small> -->
                             </div>
                         </div>
             </div>
         </div>
         <div class="row">
-                    <div class="col-lg-12">
-                        <div class="ibox ">
-                            <div class="ibox-title">
-                                <h5>Orders</h5>
-                                <div class="float-right">
-                                    <div class="btn-group">
-                                        <button type="button" class="btn btn-xs btn-white active">Today</button>
-                                        <button type="button" class="btn btn-xs btn-white">Monthly</button>
-                                        <button type="button" class="btn btn-xs btn-white">Annual</button>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="ibox-content">
-                                <div class="row">
-                                <div class="col-lg-9">
-                                    <div class="flot-chart">
-                                        <div class="flot-chart-content" id="flot-dashboard-chart"></div>
-                                    </div>
-                                </div>
-                                <div class="col-lg-3">
-                                    <ul class="stat-list">
-                                        <li>
-                                            <h2 class="no-margins">2,346</h2>
-                                            <small>Total orders in period</small>
-                                            <div class="stat-percent">48% <i class="fa fa-level-up text-navy"></i></div>
-                                            <div class="progress progress-mini">
-                                                <div style="width: 48%;" class="progress-bar"></div>
-                                            </div>
-                                        </li>
-                                        <li>
-                                            <h2 class="no-margins ">4,422</h2>
-                                            <small>Orders in last month</small>
-                                            <div class="stat-percent">60% <i class="fa fa-level-down text-navy"></i></div>
-                                            <div class="progress progress-mini">
-                                                <div style="width: 60%;" class="progress-bar"></div>
-                                            </div>
-                                        </li>
-                                        <li>
-                                            <h2 class="no-margins ">9,180</h2>
-                                            <small>Monthly income from orders</small>
-                                            <div class="stat-percent">22% <i class="fa fa-bolt text-navy"></i></div>
-                                            <div class="progress progress-mini">
-                                                <div style="width: 22%;" class="progress-bar"></div>
-                                            </div>
-                                        </li>
-                                        </ul>
-                                    </div>
-                                </div>
-                                </div>
-
-                            </div>
+        <div class="col-lg-12">
+            <div class="ibox ">
+                <div class="ibox-title">
+                    <h5>Active Members</h5>
+                    <div class="float-right">
+                        <div class="btn-group">
+                            <button type="button" class="btn btn-xs btn-white active">Today</button>
+                            <button type="button" class="btn btn-xs btn-white">Monthly</button>
+                            <button type="button" class="btn btn-xs btn-white">Annual</button>
                         </div>
                     </div>
+                </div>
+                <div class="ibox-content">
+                    <div class="row">
+                    <div class="col-lg-9">
+                        <div class="flot-chart">
+                            <div class="flot-chart-content" id="flot-dashboard-chart"></div>
+                        </div>
+                    </div>
+                    <div class="col-lg-3">
+                        <ul class="stat-list">
+                            <li>
+                                <h2 class="no-margins">2,346</h2>
+                                <small>Total orders in period</small>
+                                <div class="stat-percent">48% <i class="fa fa-level-up text-navy"></i></div>
+                                <div class="progress progress-mini">
+                                    <div style="width: 48%;" class="progress-bar"></div>
+                                </div>
+                            </li>
+                            <li>
+                                <h2 class="no-margins ">4,422</h2>
+                                <small>Orders in last month</small>
+                                <div class="stat-percent">60% <i class="fa fa-level-down text-navy"></i></div>
+                                <div class="progress progress-mini">
+                                    <div style="width: 60%;" class="progress-bar"></div>
+                                </div>
+                            </li>
+                            <li>
+                                <h2 class="no-margins ">9,180</h2>
+                                <small>Monthly income from orders</small>
+                                <div class="stat-percent">22% <i class="fa fa-bolt text-navy"></i></div>
+                                <div class="progress progress-mini">
+                                    <div style="width: 22%;" class="progress-bar"></div>
+                                </div>
+                            </li>
+                            </ul>
+                        </div>
+                    </div>
+                    </div>
+
+                </div>
+            </div>
+
+            <div class="col-lg-12">
+                <div class="ibox ">
+                    <div class="ibox-title">
+                        <h5>Today Active Members</h5>
+                        <div class="ibox-tools">
+                            <a class="collapse-link">
+                                <i class="fa fa-chevron-up"></i>
+                            </a>
+                            <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                                <i class="fa fa-wrench"></i>
+                            </a>
+                            <ul class="dropdown-menu dropdown-user">
+                                <li><a href="#" class="dropdown-item">Config option 1</a>
+                                </li>
+                                <li><a href="#" class="dropdown-item">Config option 2</a>
+                                </li>
+                            </ul>
+                            <a class="close-link">
+                                <i class="fa fa-times"></i>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="ibox-content">
+
+                        <div class="flot-chart">
+                            <div class="flot-chart-content" id="flot-line-chart-moving"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
 
 
              
@@ -728,7 +762,7 @@
     <script src="../js/popper.min.js"></script>
     <script src="../js/bootstrap.js"></script>
     <script src="../js/plugins/metisMenu/jquery.metisMenu.js"></script>
-    <script src="js/plugins/slimscroll/jquery.slimscroll.min.js"></script>
+    <script src="../js/plugins/slimscroll/jquery.slimscroll.min.js"></script>
 
     <!-- Flot -->
     <script src="../js/plugins/flot/jquery.flot.js"></script>
@@ -762,6 +796,15 @@
 
     <!-- Sparkline demo data  -->
     <script src="../js/demo/sparkline-demo.js"></script>
+
+    <!-- Custom and plugin javascript -->
+    <script src="../js/inspinia.js"></script>
+    <script src="../js/plugins/pace/pace.min.js"></script>
+
+        <!-- Flot demo data -->
+        <script src="../js/demo/flot-demo.js"></script>
+
+
 
     <script>
         $(document).ready(function() {

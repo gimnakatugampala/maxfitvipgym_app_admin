@@ -549,6 +549,8 @@
 
             </div>
 
+        <?php include '../includes/footer_copyrights.php'; ?>
+
 
 
         </div>

@@ -10,6 +10,8 @@
 <link href="../css/plugins/jasny/jasny-bootstrap.min.css" rel="stylesheet">
 <link href="../css/plugins/datapicker/datepicker3.css" rel="stylesheet">
 
+
+
 <!-- FooTable -->
 <link href="../css/plugins/footable/footable.core.css" rel="stylesheet">
 
@@ -27,3 +29,6 @@
 
 <link href="../css/plugins/slick/slick.css" rel="stylesheet">
 <link href="../css/plugins/slick/slick-theme.css" rel="stylesheet">
+
+<link href="../css/plugins/fullcalendar/fullcalendar.css" rel="stylesheet">
+<link href="../css/plugins/fullcalendar/fullcalendar.print.css" rel='stylesheet' media='print'>

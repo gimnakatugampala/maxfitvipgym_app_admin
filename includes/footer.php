@@ -1,4 +1,5 @@
  <!-- Mainly scripts -->
+ <script src="../js/plugins/fullcalendar/moment.min.js"></script>
  <script src="../js/jquery-3.1.1.min.js"></script>
   <script src="../js/popper.min.js"></script>
   <script src="../js/bootstrap.js"></script>
@@ -76,3 +77,6 @@
 
 <!-- Flot demo data -->
 <script src="../js/demo/flot-demo.js"></script>
+
+<!-- Full Calendar -->
+<script src="../js/plugins/fullcalendar/fullcalendar.min.js"></script>

@@ -10,6 +10,9 @@
 
     <?php include '../includes/header.php';  ?>
 
+
+
+
     <style>
     
     .profile-info h1 {
@@ -132,6 +135,8 @@
                                 </div>
                             </div>
 
+                          
+
                             <div role="tabpanel" id="tab-3" class="tab-pane">
                                 <div class="panel-body">
                                     <strong>Donec quam felis</strong>
@@ -146,11 +151,13 @@
 
                             <div role="tabpanel" id="tab-4" class="tab-pane">
                                 <div class="panel-body">
-                                <div class="ibox-content">
-                                <div id="calendar"></div>
-                                </div>
+                                    <div class="ibox-content">
+                                        <div id="calendar"></div>
+                                    </div>
                                 </div>
                             </div>
+
+                            
 
 
                         </div>
@@ -172,7 +179,9 @@
 
 
 
-<?php include_once '../includes/footer.php'?>
+<?php include '../includes/footer.php'?>
+
+
 
 <script>
 
@@ -203,7 +212,7 @@
             });
 
         });
-
+       
 
         /* initialize the calendar
          -----------------------------------------------------------------*/

@@ -2,19 +2,20 @@
         <div class="sidebar-collapse">
             <ul class="nav metismenu" id="side-menu">
                 <li class="nav-header">
-                    <div class="dropdown profile-element">
-                        <img alt="image" class="rounded-circle" src="../img/profile_small.jpg"/>
-                        <a data-toggle="dropdown" class="dropdown-toggle" href="#">
+                    <div class="dropdown profile-element text-center">
+                        <img alt="image" class="rounded-circle w-50" src="../img/logo.jpeg"/>
+                        <span class="block m-t-xs text-white font-bold">Maxfit VIP Gym</span>
+                        <!-- <a data-toggle="dropdown" class="dropdown-toggle" href="#">
                             <span class="block m-t-xs font-bold">David Williams</span>
                             <span class="text-muted text-xs block">Art Director <b class="caret"></b></span>
-                        </a>
-                        <ul class="dropdown-menu animated fadeInRight m-t-xs">
+                        </a> -->
+                        <!-- <ul class="dropdown-menu animated fadeInRight m-t-xs">
                             <li><a class="dropdown-item" href="/profile.html">Profile</a></li>
                             <li><a class="dropdown-item" href="contacts.html">Contacts</a></li>
                             <li><a class="dropdown-item" href="mailbox.html">Mailbox</a></li>
                             <li class="dropdown-divider"></li>
                             <li><a class="dropdown-item" href="login.html">Logout</a></li>
-                        </ul>
+                        </ul> -->
                     </div>
                     <div class="logo-element">
                         IN+

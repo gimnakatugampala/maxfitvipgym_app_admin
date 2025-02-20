@@ -6,9 +6,9 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>INSPINIA | E-commerce product detail</title>
+    <title>Maxfit VIP Gym | Gimna Katugampala</title>
 
-    <?php include_once '../includes/header.php';  ?>
+    <?php include '../includes/header.php';  ?>
 
 </head>
 
@@ -24,16 +24,16 @@
 
         <div class="row wrapper border-bottom white-bg page-heading">
             <div class="col-lg-10">
-                <h2>E-commerce product detail</h2>
+                <h2>Member Details</h2>
                 <ol class="breadcrumb">
                     <li class="breadcrumb-item">
                         <a href="index.html">Home</a>
                     </li>
                     <li class="breadcrumb-item">
-                        <a>E-commerce</a>
+                        <a>Members</a>
                     </li>
                     <li class="breadcrumb-item active">
-                        <strong>Product detail</strong>
+                        <strong>Member Details - Gimna Katugampala</strong>
                     </li>
                 </ol>
             </div>
@@ -51,32 +51,7 @@
                         <div class="ibox-content">
 
                             <div class="row">
-                                <div class="col-md-5">
-
-
-                                    <div class="product-images">
-
-                                        <div>
-                                            <div class="image-imitation">
-                                                [IMAGE 1]
-                                            </div>
-                                        </div>
-                                        <div>
-                                            <div class="image-imitation">
-                                                [IMAGE 2]
-                                            </div>
-                                        </div>
-                                        <div>
-                                            <div class="image-imitation">
-                                                [IMAGE 3]
-                                            </div>
-                                        </div>
-
-
-                                    </div>
-
-                                </div>
-                                <div class="col-md-7">
+                                <div class="col-md-12">
 
                                     <h2 class="font-bold m-b-xs">
                                         Desktop publishing software
@@ -134,96 +109,7 @@
 
                 </div>
             </div>
-            <div class="row">
-                <div class="col-lg-12">
-
-                    <div class="ibox product-detail">
-                        <div class="ibox-content">
-
-                            <div class="row">
-                                <div class="col-md-5">
-
-
-                                    <div class="product-images">
-
-                                        <div>
-                                            <div class="image-imitation">
-                                                [IMAGE 1]
-                                            </div>
-                                        </div>
-                                        <div>
-                                            <div class="image-imitation">
-                                                [IMAGE 2]
-                                            </div>
-                                        </div>
-                                        <div>
-                                            <div class="image-imitation">
-                                                [IMAGE 3]
-                                            </div>
-                                        </div>
-
-
-                                    </div>
-
-                                </div>
-                                <div class="col-md-7">
-
-                                    <h2 class="font-bold m-b-xs">
-                                        Desktop publishing software
-                                    </h2>
-                                    <small>Many desktop publishing packages and web page editors now.</small>
-                                    <hr>
-                                    <div>
-                                        <button class="btn btn-primary float-right">Add to cart</button>
-                                        <h1 class="product-main-price">$406,602 <small class="text-muted">Exclude Tax</small> </h1>
-                                    </div>
-                                    <hr>
-                                    <h4>Product description</h4>
-
-                                    <div class="small text-muted">
-                                        It is a long established fact that a reader will be distracted by the readable
-                                        content of a page when looking at its layout. The point of using Lorem Ipsum is
-                                        that it has a more-or-less normal distribution of letters, as opposed to using
-                                        'Content here, content here', making it look like readable English.
-                                        <br/>
-                                        <br/>
-                                        There are many variations of passages of Lorem Ipsum available, but the majority
-                                        have suffered alteration in some form, by injected humour, or randomised words
-                                        which don't look even slightly believable.
-                                    </div>
-                                    <dl class="row m-t-md small">
-                                        <dt class="col-md-4 text-right">Description lists</dt>
-                                        <dd class="col-md-8">A description list is perfect for defining terms.</dd>
-                                        <dt class="col-md-4 text-right">Euismod</dt>
-                                        <dd class="col-md-8">Vestibulum id ligula porta felis euismod semper eget lacinia odio sem nec elit.<br/>Donec id elit non mi porta gravida at eget metus.</dd>
-                                        <dt class="col-md-4 text-right">Malesuada porta</dt>
-                                        <dd class="col-md-8">Etiam porta sem malesuada magna mollis euismod.</dd>
-                                        <dt class="col-md-4 text-right">Felis euismod semper eget</dt>
-                                        <dd class="col-md-8">Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.</dd>
-                                    </dl>
-                                    <div class="text-right">
-                                        <div class="btn-group">
-                                            <button class="btn btn-white btn-sm"><i class="fa fa-star"></i> Add to wishlist </button>
-                                            <button class="btn btn-white btn-sm"><i class="fa fa-envelope"></i> Contact with author </button>
-                                        </div>
-                                    </div>
-
-
-                                </div>
-                            </div>
-
-                        </div>
-                        <div class="ibox-footer">
-                            <span class="float-right">
-                                Full stock - <i class="fa fa-clock-o"></i> 14.04.2016 10:04 pm
-                            </span>
-                            The generated Lorem Ipsum is therefore always free
-                        </div>
-                    </div>
-
-                </div>
-            </div>
-
+            
 
 
 

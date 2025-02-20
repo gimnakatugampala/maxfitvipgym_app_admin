@@ -144,12 +144,38 @@
                         <small class="font-bold">20th February 2025 11:00PM</small>
                     </div>
                     <div class="modal-body">
-                        <p><strong>Lorem Ipsum is simply dummy</strong> text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown
-                            printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting,
-                            remaining essentially unchanged.</p>
-                        <p><strong>Lorem Ipsum is simply dummy</strong> text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown
-                            printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting,
-                            remaining essentially unchanged.</p>
+
+                    <div class="form-group  row"><label class="col-sm-3 col-form-label"><b>Weight [kg]</b>:<span class="text-danger">*</span> </label>
+                    <div class="col-sm-9"><input type="text" class="form-control"></div>
+                    </div>
+                    <div class="hr-line-dashed"></div>
+
+                    <div class="form-group  row"><label class="col-sm-3 col-form-label"><b>Hip Size [inch]</b>:<span class="text-danger">*</span> </label>
+                    <div class="col-sm-9"><input type="text" class="form-control">
+                    </div>
+                    </div>
+                    <div class="hr-line-dashed"></div>
+
+                    <div class="form-group  row"><label class="col-sm-3 col-form-label"><b>Chest [inch]</b>:<span class="text-danger">*</span> </label>
+                    <div class="col-sm-9"><input type="text" class="form-control">
+                    </div>
+                    </div>
+                    <div class="hr-line-dashed"></div>
+
+                    <div class="form-group  row"><label class="col-sm-3 col-form-label"><b>Bicep [inch]</b>:<span class="text-danger">*</span> </label>
+                    <div class="col-sm-9"><input type="text" class="form-control">
+                    </div>
+                    </div>
+                    <div class="hr-line-dashed"></div>
+
+                    <div class="form-group  row"><label class="col-sm-3 col-form-label"><b>Max H/R [inch]</b>:<span class="text-danger">*</span> </label>
+                    <div class="col-sm-9"><input type="text" class="form-control">
+                    </div>
+                    </div>
+                    
+                   
+                    
+                    
                     </div>
 
                     <div class="modal-footer">

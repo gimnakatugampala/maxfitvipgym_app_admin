@@ -143,6 +143,14 @@
                                 <div class="panel-body">
                                    <div class="row">
 
+                                   <div class="col-lg-12 mx-auto my-3">
+                                   <div class="btn-group ">
+                                <button class="btn btn-white" type="button">Last Year</button>
+                                <button class="btn btn-success" type="button">Last 3 Years</button>
+                                <button class="btn btn-white" type="button">MAX</button>
+                            </div>
+                                   </div>
+
                                         <div class="col-lg-6">
                                         <div class="ibox ">
                                             <div class="ibox-title">

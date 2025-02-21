@@ -81,3 +81,20 @@
 <!-- Full Calendar -->
 <script src="../js/plugins/fullcalendar/fullcalendar.min.js"></script>
 
+    <!-- d3 and c3 charts -->
+    <script src="../js/plugins/d3/d3.min.js"></script>
+    <script src="../js/plugins/c3/c3.min.js"></script>
+
+  <!-- Rickshaw -->
+  <script src="../js/plugins/rickshaw/vendor/d3.v3.js"></script>
+    <script src="../js/plugins/rickshaw/rickshaw.min.js"></script>
+
+        <!-- Rickshaw demo data -->
+        <script src="../js/demo/rickshaw-demo.js"></script>
+
+
+        
+    <!-- ChartJS-->
+    <script src="../js/plugins/chartJs/Chart.min.js"></script>
+    <script src="../js/demo/chartjs-demo.js"></script>
+

@@ -31,6 +31,8 @@
             color: #6c757d;
             margin-bottom: 5px;
         }
+
+        
     </style>
 
 </head>
@@ -139,13 +141,91 @@
 
                             <div role="tabpanel" id="tab-3" class="tab-pane">
                                 <div class="panel-body">
-                                    <strong>Donec quam felis</strong>
+                                   <div class="row">
 
-                                    <p>Thousand unknown plants are noticed by me: when I hear the buzz of the little world among the stalks, and grow familiar with the countless indescribable forms of the insects
-                                        and flies, then I feel the presence of the Almighty, who formed us in his own image, and the breath </p>
+                                        <div class="col-lg-6">
+                                        <div class="ibox ">
+                                            <div class="ibox-title">
+                                                <h5>Weight Progress</h5>
+                                                <div class="ibox-tools">
+                                                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myWeightModal">
+                                                    See as Table
+                                                </button>
+                                                </div>
+                                            </div>
+                                            <div class="ibox-content">
+                                                    <div class="flot-chart">
+                                                        <div class="flot-chart-content" id="flot-bar-chart"></div>
+                                                    </div>
+                                            </div>
+                                        </div>
+                                        </div>
 
-                                    <p>I am alone, and feel the charm of existence in this spot, which was created for the bliss of souls like mine. I am so happy, my dear friend, so absorbed in the exquisite
-                                        sense of mere tranquil existence, that I neglect my talents. I should be incapable of drawing a single stroke at the present moment; and yet.</p>
+
+                                                
+                                    <div class="col-lg-6">
+                                        <div class="ibox ">
+                                            <div class="ibox-title">
+                                                <h5>Hip Size</h5>
+                                                <div class="ibox-tools">
+                                                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myHeightModal">
+                                                    See as Table
+                                                </button>
+                                                </div>
+                                            </div>
+                                            <div class="ibox-content">
+
+                                                <div class="flot-chart">
+                                                    <div class="flot-chart-content" id="flot-line-chart"></div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-lg-6">
+                    <div class="ibox ">
+                        <div class="ibox-title">
+                            <h5>Chest Progress
+                            </h5>
+                            <div class="ibox-tools">
+                            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myChestModal">
+                                                    See as Table
+                                                </button>
+                                                </div>
+                        </div>
+                        <div class="ibox-content">
+                            <div>
+                                <canvas id="lineChart" height="140"></canvas>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="col-lg-6">
+                    <div class="ibox ">
+                        <div class="ibox-title">
+                            <h5>Bicep Progress</h5>
+                            <div class="ibox-tools">
+                                                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myBicepModal">
+                                                    See as Table
+                                                </button>
+                                                </div>
+                        </div>
+                        <div class="ibox-content">
+                            <div>
+                                <canvas id="barChart" height="140"></canvas>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                                    
+
+                               
+
+                                        
+                                   </div>
                                 </div>
                             </div>
 
@@ -176,6 +256,218 @@
 
     </div>
 </div>
+
+                    <!-- Weight -->
+                        <div class="modal inmodal fade" id="myWeightModal" tabindex="-1" role="dialog"  aria-hidden="true">
+                                <div class="modal-dialog modal-lg">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                                            <h4 class="modal-title">Weight Progress</h4>
+                                            <small class="font-bold">Lorem Ipsum is simply dummy text of the printing and typesetting industry.</small>
+                                        </div>
+                                        <div class="modal-body">
+                                       
+                                    <table class="table table-striped">
+                                        <thead>
+                                        <tr>
+                                            <th>#</th>
+                                            <th>Progress</th>
+                                            <th>Weight (KG)</th>
+                                            <th>Date Recorded</th>
+                                            <th>From the Previous</th>
+                                        </tr>
+                                        </thead>
+                                        <tbody>
+                                        <tr>
+                                            <td>1</td>
+                                            <td><span class="line">5,3,2,-1,-3,-2,2,3,5,2</span></td>
+                                            <td>59</td>
+                                            <td>23th February 2025</td>
+                                            <td class="text-navy"> <i class="fa fa-level-up"></i> 40% </td>
+                                        </tr>
+                                        <tr>
+                                            <td>2</td>
+                                            <td><span class="line">5,3,9,6,5,9,7,3,5,2</span></td>
+                                            <td>55.6</td>
+                                            <td>23th February 2025</td>
+                                            <td class="text-warning"> <i class="fa fa-level-down"></i> -20% </td>
+                                        </tr>
+                                        <tr>
+                                            <td>3</td>
+                                            <td><span class="line">1,6,3,9,5,9,5,3,9,6,4</span></td>
+                                            <td>46</td>
+                                            <td>23th February 2025</td>
+                                            <td class="text-navy"> <i class="fa fa-level-up"></i> 26% </td>
+                                        </tr>
+                                        </tbody>
+                                    </table>
+                            
+                            
+                                        </div>
+
+                                    </div>
+                                </div>
+                    </div>
+
+                        <!-- Hip Size -->
+                        <div class="modal inmodal fade" id="myHeightModal" tabindex="-1" role="dialog"  aria-hidden="true">
+                                <div class="modal-dialog modal-lg">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                                            <h4 class="modal-title">Hip Size Progress</h4>
+                                            <small class="font-bold">Lorem Ipsum is simply dummy text of the printing and typesetting industry.</small>
+                                        </div>
+                                        <div class="modal-body">
+                                       
+                                    <table class="table table-striped">
+                                        <thead>
+                                        <tr>
+                                            <th>#</th>
+                                            <th>Progress</th>
+                                            <th>Hip Size (Inch)</th>
+                                            <th>Date Recorded</th>
+                                            <th>From the Previous</th>
+                                        </tr>
+                                        </thead>
+                                        <tbody>
+                                        <tr>
+                                            <td>1</td>
+                                            <td><span class="line">5,3,2,-1,-3,-2,2,3,5,2</span></td>
+                                            <td>59</td>
+                                            <td>23th February 2025</td>
+                                            <td class="text-navy"> <i class="fa fa-level-up"></i> 40% </td>
+                                        </tr>
+                                        <tr>
+                                            <td>2</td>
+                                            <td><span class="line">5,3,9,6,5,9,7,3,5,2</span></td>
+                                            <td>55.6</td>
+                                            <td>23th February 2025</td>
+                                            <td class="text-warning"> <i class="fa fa-level-down"></i> -20% </td>
+                                        </tr>
+                                        <tr>
+                                            <td>3</td>
+                                            <td><span class="line">1,6,3,9,5,9,5,3,9,6,4</span></td>
+                                            <td>46</td>
+                                            <td>23th February 2025</td>
+                                            <td class="text-navy"> <i class="fa fa-level-up"></i> 26% </td>
+                                        </tr>
+                                        </tbody>
+                                    </table>
+                            
+                            
+                                        </div>
+
+                                    </div>
+                                </div>
+                    </div>
+
+                    <!-- Chest -->
+                    <div class="modal inmodal fade" id="myChestModal" tabindex="-1" role="dialog"  aria-hidden="true">
+                                <div class="modal-dialog modal-lg">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                                            <h4 class="modal-title">Chest Progress</h4>
+                                            <small class="font-bold">Lorem Ipsum is simply dummy text of the printing and typesetting industry.</small>
+                                        </div>
+                                        <div class="modal-body">
+                                       
+                                    <table class="table table-striped">
+                                        <thead>
+                                        <tr>
+                                            <th>#</th>
+                                            <th>Progress</th>
+                                            <th>Chest Size (Inch)</th>
+                                            <th>Date Recorded</th>
+                                            <th>From the Previous</th>
+                                        </tr>
+                                        </thead>
+                                        <tbody>
+                                        <tr>
+                                            <td>1</td>
+                                            <td><span class="line">5,3,2,-1,-3,-2,2,3,5,2</span></td>
+                                            <td>59</td>
+                                            <td>23th February 2025</td>
+                                            <td class="text-navy"> <i class="fa fa-level-up"></i> 40% </td>
+                                        </tr>
+                                        <tr>
+                                            <td>2</td>
+                                            <td><span class="line">5,3,9,6,5,9,7,3,5,2</span></td>
+                                            <td>55.6</td>
+                                            <td>23th February 2025</td>
+                                            <td class="text-warning"> <i class="fa fa-level-down"></i> -20% </td>
+                                        </tr>
+                                        <tr>
+                                            <td>3</td>
+                                            <td><span class="line">1,6,3,9,5,9,5,3,9,6,4</span></td>
+                                            <td>46</td>
+                                            <td>23th February 2025</td>
+                                            <td class="text-navy"> <i class="fa fa-level-up"></i> 26% </td>
+                                        </tr>
+                                        </tbody>
+                                    </table>
+                            
+                            
+                                        </div>
+
+                                    </div>
+                                </div>
+                    </div>
+
+                    <!-- Bicep -->
+                    <div class="modal inmodal fade" id="myBicepModal" tabindex="-1" role="dialog"  aria-hidden="true">
+                                <div class="modal-dialog modal-lg">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                                            <h4 class="modal-title">Bicep Progress</h4>
+                                            <small class="font-bold">Lorem Ipsum is simply dummy text of the printing and typesetting industry.</small>
+                                        </div>
+                                        <div class="modal-body">
+                                       
+                                    <table class="table table-striped">
+                                        <thead>
+                                        <tr>
+                                            <th>#</th>
+                                            <th>Progress</th>
+                                            <th>Bicep Size (Inch)</th>
+                                            <th>Date Recorded</th>
+                                            <th>From the Previous</th>
+                                        </tr>
+                                        </thead>
+                                        <tbody>
+                                        <tr>
+                                            <td>1</td>
+                                            <td><span class="line">5,3,2,-1,-3,-2,2,3,5,2</span></td>
+                                            <td>59</td>
+                                            <td>23th February 2025</td>
+                                            <td class="text-navy"> <i class="fa fa-level-up"></i> 40% </td>
+                                        </tr>
+                                        <tr>
+                                            <td>2</td>
+                                            <td><span class="line">5,3,9,6,5,9,7,3,5,2</span></td>
+                                            <td>55.6</td>
+                                            <td>23th February 2025</td>
+                                            <td class="text-warning"> <i class="fa fa-level-down"></i> -20% </td>
+                                        </tr>
+                                        <tr>
+                                            <td>3</td>
+                                            <td><span class="line">1,6,3,9,5,9,5,3,9,6,4</span></td>
+                                            <td>46</td>
+                                            <td>23th February 2025</td>
+                                            <td class="text-navy"> <i class="fa fa-level-up"></i> 26% </td>
+                                        </tr>
+                                        </tbody>
+                                    </table>
+                            
+                            
+                                        </div>
+
+                                    </div>
+                                </div>
+                    </div>
 
 
 
@@ -288,6 +580,112 @@
     });
 
 </script>
+
+<script>
+
+        $(document).ready(function () {
+
+            c3.generate({
+                bindto: '#lineChart',
+                data:{
+                    columns: [
+                        ['data1', 30, 200, 100, 400, 150, 250],
+                        ['data2', 50, 20, 10, 40, 15, 25]
+                    ],
+                    colors:{
+                        data1: '#1ab394',
+                        data2: '#BABABA'
+                    }
+                }
+            });
+
+            c3.generate({
+                bindto: '#slineChart',
+                data:{
+                    columns: [
+                        ['data1', 30, 200, 100, 400, 150, 250],
+                        ['data2', 130, 100, 140, 200, 150, 50]
+                    ],
+                    colors:{
+                        data1: '#1ab394',
+                        data2: '#BABABA'
+                    },
+                    type: 'spline'
+                }
+            });
+
+            c3.generate({
+                bindto: '#scatter',
+                data:{
+                    xs:{
+                        data1: 'data1_x',
+                        data2: 'data2_x'
+                    },
+                    columns: [
+                        ["data1_x", 3.2, 3.2, 3.1, 2.3, 2.8, 2.8, 3.3, 2.4, 2.9, 2.7, 2.0, 3.0, 2.2, 2.9, 2.9, 3.1, 3.0, 2.7, 2.2, 2.5, 3.2, 2.8, 2.5, 2.8, 2.9, 3.0, 2.8, 3.0, 2.9, 2.6, 2.4, 2.4, 2.7, 2.7, 3.0, 3.4, 3.1, 2.3, 3.0, 2.5, 2.6, 3.0, 2.6, 2.3, 2.7, 3.0, 2.9, 2.9, 2.5, 2.8],
+                        ["data2_x", 3.3, 2.7, 3.0, 2.9, 3.0, 3.0, 2.5, 2.9, 2.5, 3.6, 3.2, 2.7, 3.0, 2.5, 2.8, 3.2, 3.0, 3.8, 2.6, 2.2, 3.2, 2.8, 2.8, 2.7, 3.3, 3.2, 2.8, 3.0, 2.8, 3.0, 2.8, 3.8, 2.8, 2.8, 2.6, 3.0, 3.4, 3.1, 3.0, 3.1, 3.1, 3.1, 2.7, 3.2, 3.3, 3.0, 2.5, 3.0, 3.4, 3.0],
+                        ["data1", 1.4, 1.5, 1.5, 1.3, 1.5, 1.3, 1.6, 1.0, 1.3, 1.4, 1.0, 1.5, 1.0, 1.4, 1.3, 1.4, 1.5, 1.0, 1.5, 1.1, 1.8, 1.3, 1.5, 1.2, 1.3, 1.4, 1.4, 1.7, 1.5, 1.0, 1.1, 1.0, 1.2, 1.6, 1.5, 1.6, 1.5, 1.3, 1.3, 1.3, 1.2, 1.4, 1.2, 1.0, 1.3, 1.2, 1.3, 1.3, 1.1, 1.3],
+                        ["data2", 2.5, 1.9, 2.1, 1.8, 2.2, 2.1, 1.7, 1.8, 1.8, 2.5, 2.0, 1.9, 2.1, 2.0, 2.4, 2.3, 1.8, 2.2, 2.3, 1.5, 2.3, 2.0, 2.0, 1.8, 2.1, 1.8, 1.8, 1.8, 2.1, 1.6, 1.9, 2.0, 2.2, 1.5, 1.4, 2.3, 2.4, 1.8, 1.8, 2.1, 2.4, 2.3, 1.9, 2.3, 2.5, 2.3, 1.9, 2.0, 2.3, 1.8]
+                    ],
+                    colors:{
+                        data1: '#1ab394',
+                        data2: '#BABABA'
+                    },
+                    type: 'scatter'
+                }
+            });
+
+            c3.generate({
+                bindto: '#stocked',
+                data:{
+                    columns: [
+                        ['data1', 30,200,100,400,150,250],
+                        ['data2', 50,20,10,40,15,25]
+                    ],
+                    colors:{
+                        data1: '#1ab394',
+                        data2: '#BABABA'
+                    },
+                    type: 'bar',
+                    groups: [
+                        ['data1', 'data2']
+                    ]
+                }
+            });
+
+            c3.generate({
+                bindto: '#gauge',
+                data:{
+                    columns: [
+                        ['data', 91.4]
+                    ],
+
+                    type: 'gauge'
+                },
+                color:{
+                    pattern: ['#1ab394', '#BABABA']
+
+                }
+            });
+
+            c3.generate({
+                bindto: '#pie',
+                data:{
+                    columns: [
+                        ['data1', 30],
+                        ['data2', 120]
+                    ],
+                    colors:{
+                        data1: '#1ab394',
+                        data2: '#BABABA'
+                    },
+                    type : 'pie'
+                }
+            });
+
+        });
+
+    </script>
 
 </body>
 

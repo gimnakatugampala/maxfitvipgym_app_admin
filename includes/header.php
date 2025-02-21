@@ -14,7 +14,8 @@
 <link href="../css/plugins/fullcalendar/fullcalendar.print.css" rel='stylesheet' media='print'>
 
 
-
+    <!-- c3 Charts -->
+    <link href="../css/plugins/c3/c3.min.css" rel="stylesheet">
 
 
 

@@ -31,36 +31,7 @@
             color: #6c757d;
             margin-bottom: 5px;
         }
-/* 
-        .workout-day {
-      border: 1px solid #ddd;
-      border-radius: .375rem;
-      background-color: #fff;
-      transition: all 0.3s ease;
-    }
-    .workout-day-header {
-      padding: 1rem;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      cursor: pointer;
-    }
-   
-    .workout-day-details {
-      padding: 1rem;
-      display: none;
-      background-color: #f8f9fa;
-    }
-    .workout-day-expanded .workout-day-details {
-      display: block;
-    }
-    .rest-day {
-      background-color: #f8f9fa;
-      text-align: center;
-      padding: 1rem;
-      font-size: 1rem;
-      color: #6c757d;
-    } */
+
         
     </style>
 

@@ -51,7 +51,11 @@
 
 
                 <li>
-                    <a href="../members/"><i class="fa fa-laptop"></i> <span class="nav-label">Members</span></a>
+                <a href="#"><i class="fa fa-edit"></i> <span class="nav-label">Members</span><span class="fa arrow"></span></a>
+                <ul class="nav nav-second-level collapse">
+                        <li><a href="../members/">Members List</a></li>
+                        <li><a href="../members/attendance.php">Attendance</a></li>
+                    </ul>
                 </li>
            
         

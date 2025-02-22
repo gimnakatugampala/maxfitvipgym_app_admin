@@ -13,6 +13,9 @@
 <link href="../css/plugins/fullcalendar/fullcalendar.css" rel="stylesheet">
 <link href="../css/plugins/fullcalendar/fullcalendar.print.css" rel='stylesheet' media='print'>
 
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+
+
 
     <!-- c3 Charts -->
     <link href="../css/plugins/c3/c3.min.css" rel="stylesheet">

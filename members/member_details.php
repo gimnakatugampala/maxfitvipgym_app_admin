@@ -31,7 +31,36 @@
             color: #6c757d;
             margin-bottom: 5px;
         }
-
+/* 
+        .workout-day {
+      border: 1px solid #ddd;
+      border-radius: .375rem;
+      background-color: #fff;
+      transition: all 0.3s ease;
+    }
+    .workout-day-header {
+      padding: 1rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      cursor: pointer;
+    }
+   
+    .workout-day-details {
+      padding: 1rem;
+      display: none;
+      background-color: #f8f9fa;
+    }
+    .workout-day-expanded .workout-day-details {
+      display: block;
+    }
+    .rest-day {
+      background-color: #f8f9fa;
+      text-align: center;
+      padding: 1rem;
+      font-size: 1rem;
+      color: #6c757d;
+    } */
         
     </style>
 
@@ -127,14 +156,278 @@
 
                             <div role="tabpanel" id="tab-2" class="tab-pane">
                                 <div class="panel-body">
-                                    <strong>Donec quam felis</strong>
-
-                                    <p>Thousand unknown plants are noticed by me: when I hear the buzz of the little world among the stalks, and grow familiar with the countless indescribable forms of the insects
-                                        and flies, then I feel the presence of the Almighty, who formed us in his own image, and the breath </p>
-
-                                    <p>I am alone, and feel the charm of existence in this spot, which was created for the bliss of souls like mine. I am so happy, my dear friend, so absorbed in the exquisite
-                                        sense of mere tranquil existence, that I neglect my talents. I should be incapable of drawing a single stroke at the present moment; and yet.</p>
+                         <!-- Header -->
+                            <div class="container mt-4">
+                                <div class="header d-flex justify-content-between align-items-center p-3 rounded shadow-sm">
+                                    <div class="d-flex align-items-center">
+                                        <i class="fas fa-dumbbell fa-2x mr-2"></i>
+                                        <h2 class="text-dark">Workout Planner</h2>
+                                    </div>
+                                    <div>
+                                        <button class="btn btn-light btn-sm">🏆 3 Active Days</button>
+                                        <button class="btn btn-outline-light btn-sm">📅 March 2024</button>
+                                    </div>
                                 </div>
+                            </div>
+
+
+                            <!-- Current Schedule -->
+ <!-- Current Schedule (Accordion) -->
+<div class="container mt-4">
+    <div class="card shadow-lg rounded">
+        <div class="card-header">
+            <h2 class="mb-1">Current Schedule</h2>
+            <p class="opacity-75">Your active workout plan</p>
+        </div>
+        <div class="card-body">
+            <div class="alert alert-info rounded">📅 Mar 1 - Apr 1, 2024 | 3 workout days planned</div>
+
+            <div id="workoutSchedule">
+                <!-- Monday -->
+                <div class="card">
+                    <div class="card-header">
+                        <a class="btn btn-link btn-block text-left" data-toggle="collapse" href="#monday">
+                            <i class="fas fa-dumbbell mr-2"></i> Monday - 3 Exercises
+                        </a>
+                    </div>
+                    <div id="monday" class="collapse show" data-parent="#workoutSchedule">
+                        <div class="card-body">
+                            ✅ Squats <br>
+                            ✅ Push-ups <br>
+                            ✅ Deadlifts
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Tuesday (Rest Day) -->
+                <div class="list-group-item text-muted"><i class="fa fa-sun-o" aria-hidden="true"></i> Tuesday - Rest Day</div>
+
+                <!-- Wednesday -->
+                <div class="card mt-2">
+                    <div class="card-header">
+                        <a class="btn btn-link btn-block text-left collapsed" data-toggle="collapse" href="#wednesday">
+                            <i class="fas fa-dumbbell mr-2"></i> Wednesday - 3 Exercises
+                        </a>
+                    </div>
+                    <div id="wednesday" class="collapse" data-parent="#workoutSchedule">
+                        <div class="card-body">
+                            ✅ Bench Press <br>
+                            ✅ Pull-ups <br>
+                            ✅ Lunges
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Thursday (Rest Day) -->
+                <div class="list-group-item text-muted"><i class="fa fa-sun-o" aria-hidden="true"></i>     Thursday - Rest Day</div>
+
+                <!-- Friday -->
+                <div class="card mt-2">
+                    <div class="card-header">
+                        <a class="btn btn-link btn-block text-left collapsed" data-toggle="collapse" href="#friday">
+                            <i class="fas fa-dumbbell mr-2"></i> Friday - 3 Exercises
+                        </a>
+                    </div>
+                    <div id="friday" class="collapse" data-parent="#workoutSchedule">
+                        <div class="card-body">
+                            ✅ Shoulder Press <br>
+                            ✅ Triceps Dips <br>
+                            ✅ Planks
+                        </div>
+                    </div>
+                </div>
+
+            </div> <!-- End Workout Schedule -->
+        </div>
+    </div>
+</div>
+
+
+<!-- Workout History -->
+<div class="container mt-4">
+    <div class="card shadow-lg rounded">
+        <div class="card-header bg-dark text-white">
+            <h2 class="mb-1">Workout History</h2>
+            <p class="opacity-75">Previous workout schedules</p>
+        </div>
+        <div class="card-body">
+            <div id="workoutHistory">
+
+                <!-- Workout Schedule 1 -->
+                <div class="card">
+                    <div class="card-header bg-primary text-white">
+                        <a class="btn btn-link btn-block text-left text-white" data-toggle="collapse" href="#history1">
+                            <i class="fas fa-calendar-alt mr-2"></i> Feb 1 - Mar 1, 2024
+                        </a>
+                    </div>
+                    <div id="history1" class="collapse" data-parent="#workoutHistory">
+                        <div class="card-body">
+                            <div id="days1">
+
+                                <!-- Monday - Workout Day -->
+                                <div class="card">
+                                    <div class="card-header bg-success text-white">
+                                        <a class="btn btn-link btn-block text-left text-white" data-toggle="collapse" href="#febMonday">
+                                            🏋️ Monday - Workout Day
+                                        </a>
+                                    </div>
+                                    <div id="febMonday" class="collapse" data-parent="#days1">
+                                        <div class="card-body">
+                                            ✅ Squats <br>
+                                            ✅ Push-ups <br>
+                                            ✅ Deadlifts
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Tuesday - Rest Day -->
+                                <div class="card mt-2">
+                                    <div class="card-header bg-secondary text-white">
+                                        <span class="text-left d-block">🛌 Tuesday - Rest Day</span>
+                                    </div>
+                                </div>
+
+                                <!-- Wednesday - Workout Day -->
+                                <div class="card mt-2">
+                                    <div class="card-header bg-success text-white">
+                                        <a class="btn btn-link btn-block text-left text-white" data-toggle="collapse" href="#febWednesday">
+                                            🏋️ Wednesday - Workout Day
+                                        </a>
+                                    </div>
+                                    <div id="febWednesday" class="collapse" data-parent="#days1">
+                                        <div class="card-body">
+                                            ✅ Bench Press <br>
+                                            ✅ Pull-ups <br>
+                                            ✅ Lunges
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Thursday - Rest Day -->
+                                <div class="card mt-2">
+                                    <div class="card-header bg-secondary text-white">
+                                        <span class="text-left d-block">🛌 Thursday - Rest Day</span>
+                                    </div>
+                                </div>
+
+                                <!-- Friday - Workout Day -->
+                                <div class="card mt-2">
+                                    <div class="card-header bg-success text-white">
+                                        <a class="btn btn-link btn-block text-left text-white" data-toggle="collapse" href="#febFriday">
+                                            🏋️ Friday - Workout Day
+                                        </a>
+                                    </div>
+                                    <div id="febFriday" class="collapse" data-parent="#days1">
+                                        <div class="card-body">
+                                            ✅ Shoulder Press <br>
+                                            ✅ Triceps Dips <br>
+                                            ✅ Planks
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div> <!-- End Days 1 -->
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Workout Schedule 2 -->
+                <div class="card mt-2">
+                    <div class="card-header bg-primary text-white">
+                        <a class="btn btn-link btn-block text-left text-white collapsed" data-toggle="collapse" href="#history2">
+                            <i class="fas fa-calendar-alt mr-2"></i> Jan 1 - Feb 1, 2024
+                        </a>
+                    </div>
+                    <div id="history2" class="collapse" data-parent="#workoutHistory">
+                        <div class="card-body">
+                            <div id="days2">
+
+                                <!-- Monday - Workout Day -->
+                                <div class="card">
+                                    <div class="card-header bg-success text-white">
+                                        <a class="btn btn-link btn-block text-left text-white" data-toggle="collapse" href="#janMonday">
+                                            🏋️ Monday - Workout Day
+                                        </a>
+                                    </div>
+                                    <div id="janMonday" class="collapse" data-parent="#days2">
+                                        <div class="card-body">
+                                            ✅ Squats <br>
+                                            ✅ Push-ups <br>
+                                            ✅ Deadlifts
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Tuesday - Rest Day -->
+                                <div class="card mt-2">
+                                    <div class="card-header bg-secondary text-white">
+                                        <span class="text-left d-block">🛌 Tuesday - Rest Day</span>
+                                    </div>
+                                </div>
+
+                                <!-- Wednesday - Workout Day -->
+                                <div class="card mt-2">
+                                    <div class="card-header bg-success text-white">
+                                        <a class="btn btn-link btn-block text-left text-white" data-toggle="collapse" href="#janWednesday">
+                                            🏋️ Wednesday - Workout Day
+                                        </a>
+                                    </div>
+                                    <div id="janWednesday" class="collapse" data-parent="#days2">
+                                        <div class="card-body">
+                                            ✅ Bench Press <br>
+                                            ✅ Pull-ups <br>
+                                            ✅ Lunges
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Thursday - Rest Day -->
+                                <div class="card mt-2">
+                                    <div class="card-header bg-secondary text-white">
+                                        <span class="text-left d-block">🛌 Thursday - Rest Day</span>
+                                    </div>
+                                </div>
+
+                                <!-- Friday - Workout Day -->
+                                <div class="card mt-2">
+                                    <div class="card-header bg-success text-white">
+                                        <a class="btn btn-link btn-block text-left text-white" data-toggle="collapse" href="#janFriday">
+                                            🏋️ Friday - Workout Day
+                                        </a>
+                                    </div>
+                                    <div id="janFriday" class="collapse" data-parent="#days2">
+                                        <div class="card-body">
+                                            ✅ Shoulder Press <br>
+                                            ✅ Triceps Dips <br>
+                                            ✅ Planks
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div> <!-- End Days 2 -->
+                        </div>
+                    </div>
+                </div>
+
+            </div> <!-- End Workout History -->
+        </div>
+    </div>
+</div>
+
+
+
+
+
+    
+
+
+                            
+
+
+                            
+                                
+                            </div>
+
                             </div>
 
                           
@@ -694,6 +987,23 @@
         });
 
     </script>
+
+
+<script>
+    function toggleDetails(element) {
+      const details = element.closest('.workout-day').querySelector('.workout-day-details');
+      const isExpanded = details.style.display === 'block';
+
+      // Toggle the expanded state
+      if (isExpanded) {
+        details.style.display = 'none';
+        element.querySelector('span').innerHTML = '&#x25BC;'; // Chevron Down
+      } else {
+        details.style.display = 'block';
+        element.querySelector('span').innerHTML = '&#x25B2;'; // Chevron Up
+      }
+    }
+  </script>
 
 </body>
 

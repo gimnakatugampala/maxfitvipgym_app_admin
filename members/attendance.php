@@ -6,7 +6,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Maxfit VIP Gym | Members List</title>
+    <title>Maxfit VIP Gym | Attendance</title>
 
     <?php include_once '../includes/header.php';  ?>
 
@@ -57,7 +57,7 @@
                             <a>Members</a>
                         </li>
                         <li class="breadcrumb-item active">
-                            <strong>Members List</strong>
+                            <strong>Attendance</strong>
                         </li>
                     </ol>
                 </div>
@@ -70,7 +70,7 @@
                 <div class="col-lg-12">
                 <div class="ibox ">
                     <div class="ibox-title">
-                        <h5>All the members using the Maxfit VIP Gym</h5>
+                        <h5>Search Attendance</h5>
                         <div class="ibox-tools">
                             <a class="collapse-link">
                                 <i class="fa fa-chevron-up"></i>
@@ -92,44 +92,44 @@
                     <div class="ibox-content">
 
                     <div class="container">
-    <div class="row justify-content-center">
-      <div class="col-md-8">
-        <!-- Card for the Date Picker -->
-        <div class="card shadow-sm mb-4">
-          <div class="card-header text-center">
-            <h3 class="mb-0">Select Workout Date</h3>
-          </div>
-          <div class="card-body">
-            <div class="form-group">
-              <label for="attendance-date">Select a Date:</label>
-              <input type="date" class="form-control" id="attendance-date">
-            </div>
-            <button class="btn btn-primary btn-block" id="showAttendanceBtn">Show Members Attended</button>
-          </div>
-        </div>
+                    <div class="row justify-content-center">
+                    <div class="col-md-8">
+                        <!-- Card for the Date Picker -->
+                        <div class="card shadow-sm mb-4">
+                        <div class="card-header text-center">
+                            <h3 class="mb-0">Select Workout Date</h3>
+                        </div>
+                        <div class="card-body">
+                            <div class="form-group">
+                            <label for="attendance-date">Select a Date:</label>
+                            <input type="date" class="form-control" id="attendance-date">
+                            </div>
+                            <button class="btn btn-primary btn-block" id="showAttendanceBtn">Show Members Attended</button>
+                        </div>
+                        </div>
 
-        <!-- Modal for Attendance List -->
-        <div class="modal fade" id="attendanceModal" tabindex="-1" role="dialog" aria-labelledby="attendanceModalLabel" aria-hidden="true">
-          <div class="modal-dialog" role="document">
-            <div class="modal-content">
-              <div class="modal-header">
-                <h5 class="modal-title" id="attendanceModalLabel">Members Who Attended</h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                  <span aria-hidden="true">&times;</span>
-                </button>
-              </div>
-              <div class="modal-body">
-                <ul class="list-group" id="members-list">
-                  <!-- Members will be listed here -->
-                </ul>
-                <p id="no-attendance-msg" class="text-center no-attendance" style="display: none;">No members attended on this date.</p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
+                        <!-- Modal for Attendance List -->
+                        <div class="modal fade" id="attendanceModal" tabindex="-1" role="dialog" aria-labelledby="attendanceModalLabel" aria-hidden="true">
+                        <div class="modal-dialog" role="document">
+                            <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="attendanceModalLabel">Members Who Attended</h5>
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>
+                            <div class="modal-body">
+                                <ul class="list-group" id="members-list">
+                                <!-- Members will be listed here -->
+                                </ul>
+                                <p id="no-attendance-msg" class="text-center no-attendance" style="display: none;">No members attended on this date.</p>
+                            </div>
+                            </div>
+                        </div>
+                        </div>
+                    </div>
+                    </div>
+                </div>
 
                     </div>
                 </div>

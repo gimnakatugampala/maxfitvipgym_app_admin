@@ -10,28 +10,39 @@
 
     <?php include_once '../includes/header.php';  ?>
 
-
     <style>
-   
-    .no-attendance {
-      color: #ffc107;
-    }
+        .no-attendance {
+            color: #ffc107;
+        }
 
-    .modal-content {
-      border-radius: 10px;
-    }
+        .attendance-list-container {
+            margin-top: 20px;
+        }
 
-    .list-group-item {
-      padding: 15px;
-      font-size: 1.2em;
-    }
+        .table {
+            width: 100%;
+            border-collapse: collapse;
+        }
 
-    .list-group-item:hover {
-      background-color: #f0f0f0;
-      cursor: pointer;
-    }
-  </style>
+        .table th, .table td {
+            padding: 15px;
+            border: 1px solid #ddd;
+            text-align: left;
+        }
 
+        .table th {
+            background-color: #f2f2f2;
+        }
+
+        .table td {
+            font-size: 1.1em;
+        }
+
+        .table td:hover {
+            background-color: #f0f0f0;
+            cursor: pointer;
+        }
+    </style>
 
 </head>
 
@@ -42,7 +53,7 @@
         <?php include '../includes/sidebar.php'; ?>
 
         <div id="page-wrapper" class="gray-bg">
-            
+
         <?php include '../includes/navbar.php'; ?>
 
 
@@ -65,6 +76,7 @@
 
                 </div>
             </div>
+
         <div class="wrapper wrapper-content animated fadeInRight">
             <div class="row">
                 <div class="col-lg-12">
@@ -108,25 +120,24 @@
                         </div>
                         </div>
 
-                        <!-- Modal for Attendance List -->
-                        <div class="modal fade" id="attendanceModal" tabindex="-1" role="dialog" aria-labelledby="attendanceModalLabel" aria-hidden="true">
-                        <div class="modal-dialog" role="document">
-                            <div class="modal-content">
-                            <div class="modal-header">
-                                <h5 class="modal-title" id="attendanceModalLabel">Members Who Attended</h5>
-                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                <span aria-hidden="true">&times;</span>
-                                </button>
-                            </div>
-                            <div class="modal-body">
-                                <ul class="list-group" id="members-list">
-                                <!-- Members will be listed here -->
-                                </ul>
-                                <p id="no-attendance-msg" class="text-center no-attendance" style="display: none;">No members attended on this date.</p>
-                            </div>
-                            </div>
+                        <!-- Attendance List (Directly displayed in the DOM) -->
+                        <div class="attendance-list-container" id="attendanceListContainer" style="display: none;">
+                            <h4 class="text-center">Members Who Attended</h4>
+                            <table class="table" id="attendance-table">
+                                <thead>
+                                    <tr>
+                                        <th>Membership ID</th>
+                                        <th>Full Name</th>
+                                        <th>Attended Time</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="members-list">
+                                    <!-- Members will be listed here -->
+                                </tbody>
+                            </table>
+                            <p id="no-attendance-msg" class="text-center no-attendance" style="display: none;">No members attended on this date.</p>
                         </div>
-                        </div>
+
                     </div>
                     </div>
                 </div>
@@ -149,30 +160,55 @@
 
   <!-- Custom JavaScript -->
   <script>
-    // Sample Data: Members and their attendance on specific dates
+    // Sample Data: Members and their attendance on specific dates (with Membership ID and Attended Time)
     const attendanceData = {
-      "2025-02-22": ["John Doe", "Jane Smith", "Mark Johnson"],
-      "2025-02-21": ["Emily Brown", "Michael Green"],
-      "2025-02-20": ["David White", "Sarah Black"]
+      "2025-02-22": [
+        { id: "M123", name: "John Doe", attendedTime: "8:30 AM" },
+        { id: "M124", name: "Jane Smith", attendedTime: "9:00 AM" },
+        { id: "M125", name: "Mark Johnson", attendedTime: "9:30 AM" }
+      ],
+      "2025-02-21": [
+        { id: "M126", name: "Emily Brown", attendedTime: "7:30 AM" },
+        { id: "M127", name: "Michael Green", attendedTime: "8:00 AM" }
+      ],
+      "2025-02-20": [
+        { id: "M128", name: "David White", attendedTime: "6:45 AM" },
+        { id: "M129", name: "Sarah Black", attendedTime: "7:00 AM" }
+      ]
     };
 
     // Function to update the list of members who attended
     function updateAttendanceList(date) {
       const membersList = document.getElementById("members-list");
       const noAttendanceMsg = document.getElementById("no-attendance-msg");
+      const attendanceListContainer = document.getElementById("attendanceListContainer");
+
       membersList.innerHTML = '';  // Clear previous list
       noAttendanceMsg.style.display = 'none'; // Hide no attendance message
 
       // Check if there are members for the selected date
       if (attendanceData[date]) {
         attendanceData[date].forEach(member => {
-          const listItem = document.createElement("li");
-          listItem.classList.add("list-group-item");
-          listItem.textContent = member;
-          membersList.appendChild(listItem);
+          const row = document.createElement("tr");
+
+          const cellId = document.createElement("td");
+          cellId.textContent = member.id;
+          row.appendChild(cellId);
+
+          const cellName = document.createElement("td");
+          cellName.textContent = member.name;
+          row.appendChild(cellName);
+
+          const cellTime = document.createElement("td");
+          cellTime.textContent = member.attendedTime;
+          row.appendChild(cellTime);
+
+          membersList.appendChild(row);
         });
+        attendanceListContainer.style.display = 'block'; // Show attendance list container
       } else {
         noAttendanceMsg.style.display = 'block'; // Show no attendance message
+        attendanceListContainer.style.display = 'none'; // Hide attendance list container
       }
     }
 
@@ -181,14 +217,11 @@
       const selectedDate = document.getElementById("attendance-date").value;
       if (selectedDate) {
         updateAttendanceList(selectedDate);
-        $('#attendanceModal').modal('show'); // Show the modal
       } else {
         alert("Please select a date.");
       }
     });
   </script>
-
-
 
 </body>
 

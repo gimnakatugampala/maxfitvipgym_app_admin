@@ -88,8 +88,8 @@
                             <span class="badge badge-danger">1 rest day</span>
                         </td>
                         <td class="center">
-                            <a href="../members/member_details.php" type="button" class="btn btn-primary"><i class="fa fa-eye" aria-hidden="true"></i></a>
-                            <button data-toggle="modal" data-target="#myModal5" type="button" class="btn btn-success"><i class="fa fa-line-chart" aria-hidden="true"></i></button>
+                            <a href="../workout-schedule/edit-work-schedule.php" type="button" class="btn btn-primary"><i class="fa fa-pencil" aria-hidden="true"></i>                            </a>
+                            <!-- <button data-toggle="modal" data-target="#myModal5" type="button" class="btn btn-success"><i class="fa fa-line-chart" aria-hidden="true"></i></button> -->
                         </td>
                     </tr>
                     <tr class="gradeC">
@@ -100,8 +100,9 @@
                         <span class="badge badge-danger">1 rest day</span>
                         </td>
                         <td class="center">
-                            <a href="../members/member_details.php" type="button" class="btn btn-primary"><i class="fa fa-eye" aria-hidden="true"></i></a>
-                            <button data-toggle="modal" data-target="#myModal5" type="button" class="btn btn-success"><i class="fa fa-line-chart" aria-hidden="true"></i></button>
+                            <a href="../workout-schedule/edit-work-schedule.php" type="button" class="btn btn-primary"><i class="fa fa-pencil" aria-hidden="true"></i>
+                            </a>
+                            <!-- <button data-toggle="modal" data-target="#myModal5" type="button" class="btn btn-success"><i class="fa fa-line-chart" aria-hidden="true"></i></button> -->
                         </td>
                     </tr>
                 

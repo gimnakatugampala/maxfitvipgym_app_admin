@@ -20,7 +20,7 @@
         .workout-list-container {
             display: flex;
             gap: 10px;
-            border: 2px solid #007bff;
+            /* border: 2px solid #007bff; */
             border-radius: 10px;
             padding: 10px;
             background: white;
@@ -183,14 +183,17 @@
 
                     <div class="container-fluid">
                     <div class="workout-section">
-                        <h3>Workouts</h3>
+                        <!-- <h3>Workouts</h3> -->
                         <input type="text" id="searchBar" class="search-bar" placeholder="Search workouts...">
                         <div class="workout-list-container" id="workoutList"></div>
                     </div>
                     
                     <div class="schedule-section">
-                        <h2>Workout Schedule</h2>
-                        <h3>Schedule</h3>
+                        <!-- <h2>Workout Schedule</h2>
+                        <h3>Schedule</h3> -->
+                        <label>Work Schedule Title: </label>
+                        <input type="text" id="searchBar" class="search-bar" placeholder="Title ...">
+
                         <div id="schedule" class="day-container"></div>
                         <button class="reset-btn" onclick="resetSchedule()">Reset Schedule</button>
                     </div>

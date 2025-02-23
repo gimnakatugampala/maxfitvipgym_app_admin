@@ -6,40 +6,31 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Maxfit VIP Gym | Workout Schedule List</title>
+    <title>Maxfit VIP Gym | Add Workout Schedule</title>
 
     <?php include_once '../includes/header.php';  ?>
 
     <style>
-    
-        .container {
-            display: flex;
-            max-width: 1000px;
-            background: white;
-            padding: 20px;
-            border-radius: 10px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-            flex-direction: row-reverse;
-        }
+
         .workout-section {
-            width: 300px;
-            padding-left: 20px;
+            overflow-x: auto;
+            white-space: nowrap;
+            padding-bottom: 10px;
+        }
+        .workout-list-container {
+            display: flex;
+            gap: 10px;
+            border: 2px solid #007bff;
+            border-radius: 10px;
+            padding: 10px;
+            background: white;
+            overflow-x: auto;
         }
         .schedule-section {
             flex: 1;
         }
         h2, h3 {
-            text-align: center;
             color: #333;
-        }
-        .workout-list-container {
-            height: 400px;
-            overflow-y: auto;
-            border: 2px solid #007bff;
-            border-radius: 10px;
-            padding: 10px;
-            background: white;
-            margin-bottom: 20px;
         }
         .search-bar {
             width: 100%;
@@ -75,19 +66,27 @@
             height: 50px;
             border-radius: 5px;
         }
+        .workout input {
+            width: 50%;
+            padding: 5px;
+            border: 1px solid #007bff;
+            border-radius: 5px;
+            text-align: center;
+        }
+
         .day-container {
             display: flex;
             flex-wrap: wrap;
-            gap: 15px;
-            justify-content: center;
+            gap: 3px;
+            /* justify-content: center; */
         }
         .day {
             min-height: 400px;
-            width: 300px;
+            width: 250px;
             text-align: center;
             background-color: #e3f2fd;
             font-weight: bold;
-            padding: 15px;
+            padding: 10px;
             border: 2px solid #007bff;
             border-radius: 10px;
         }
@@ -148,7 +147,7 @@
                             <a>Workout Schedule</a>
                         </li>
                         <li class="breadcrumb-item active">
-                            <strong>Workout Schedule List</strong>
+                            <strong>Add Workout Schedule</strong>
                         </li>
                     </ol>
                 </div>
@@ -182,21 +181,20 @@
                     </div>
                     <div class="ibox-content">
 
-                    <div class="container">
-        <div class="workout-section">
-            <h3>Workouts</h3>
-            <input type="text" id="searchBar" class="search-bar" placeholder="Search workouts...">
-            <div class="workout-list-container">
-                <div id="workoutList" class="workout-list"></div>
-            </div>
-        </div>
-        <div class="schedule-section">
-            <h2>Workout Schedule</h2>
-            <h3>Schedule</h3>
-            <div id="schedule" class="day-container"></div>
-            <button class="reset-btn" onclick="resetSchedule()">Reset Schedule</button>
-        </div>
-    </div>
+                    <div class="container-fluid">
+                    <div class="workout-section">
+                        <h3>Workouts</h3>
+                        <input type="text" id="searchBar" class="search-bar" placeholder="Search workouts...">
+                        <div class="workout-list-container" id="workoutList"></div>
+                    </div>
+                    
+                    <div class="schedule-section">
+                        <h2>Workout Schedule</h2>
+                        <h3>Schedule</h3>
+                        <div id="schedule" class="day-container"></div>
+                        <button class="reset-btn" onclick="resetSchedule()">Reset Schedule</button>
+                    </div>
+                </div>
 
                   
 
@@ -223,7 +221,7 @@
         const workouts = Array.from({ length: 20 }, (_, i) => ({
             name: `Workout ${i + 1}`,
             type: i % 2 === 0 ? "time" : "sets",
-            image: "https://via.placeholder.com/50"
+            image: "https://www.anytimefitness.com/wp-content/uploads/2024/01/AF-HERO_BenchPress.jpg"
         }));
 
         const workoutListDiv = document.getElementById("workoutList");

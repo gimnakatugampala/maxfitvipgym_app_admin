@@ -42,9 +42,9 @@
                 <li>
                     <a href="#"><i class="fa fa-edit"></i> <span class="nav-label">Workout Schedule</span><span class="fa arrow"></span></a>
                     <ul class="nav nav-second-level collapse">
-                        <li><a href="form_basic.html">Add Workout Schedule</a></li>
-                        <li><a href="form_advanced.html">Workout Schedule List</a></li>
-                        <li><a href="form_wizard.html">Assign Schedule</a></li>
+                        <li><a href="../workout-schedule/add-workout-schedule.php">Add Workout Schedule</a></li>
+                        <li><a href="../workout-schedule/">Workout Schedule List</a></li>
+                        <li><a href="../workout-schedule/assign-workout-schedule.php">Assign Schedule</a></li>
                     </ul>
                 </li>
                 

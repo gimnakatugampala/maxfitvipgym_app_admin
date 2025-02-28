@@ -59,6 +59,7 @@
             position: relative;
             flex-direction: column;
             width: 100%;
+            margin-top: 2px;
         }
         .workout:hover {
             transform: scale(1.05);
@@ -69,11 +70,12 @@
             border-radius: 5px;
         }
         .workout input {
-            width: 50%;
+            width: 45%;
             padding: 5px;
             border: 1px solid #007bff;
             border-radius: 5px;
             text-align: center;
+            margin: 1px;
         }
 
         .day-container {

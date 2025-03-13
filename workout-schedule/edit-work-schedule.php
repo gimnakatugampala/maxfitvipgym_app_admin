@@ -191,7 +191,7 @@
                     <div class="schedule-section">
                         <!-- <h2>Workout Schedule</h2>
                         <h3>Schedule</h3> -->
-                        <label>Work Schedule Title: </label>
+                        <label>Work Schedule Title <span class="text-danger">*</span>: </label>
                         <input type="text" id="searchBar" class="search-bar" placeholder="Title ...">
 
                         <div id="schedule" class="day-container"></div>

@@ -200,9 +200,8 @@
                             <div class="form-group row"><label class="col-lg-2 col-form-label">Workout Schedule</label>
                             <div class="col-lg-10"><select class="form-control m-b" name="account">
                                         <option>BEGINNER SCHEDULE</option>
-                                        <option>option 2</option>
-                                        <option>option 3</option>
-                                        <option>option 4</option>
+                                        <option>STANDARD SCHEDULE</option>
+                                        <option>CARDIO SCHEDULE</option>
                                     </select></div>
                             </div>
                         </div>

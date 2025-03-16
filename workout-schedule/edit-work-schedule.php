@@ -48,7 +48,7 @@
             display: flex;
             align-items: center;
             gap: 10px;
-            padding: 10px;
+            padding: 8px;
             border: 2px solid #007bff;
             border-radius: 10px;
             background: white;
@@ -57,6 +57,9 @@
             box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
             transition: transform 0.2s ease-in-out;
             position: relative;
+            flex-direction: column;
+            width: 100%;
+            margin-top: 2px;
         }
         .workout:hover {
             transform: scale(1.05);
@@ -67,11 +70,12 @@
             border-radius: 5px;
         }
         .workout input {
-            width: 50%;
-            padding: 5px;
+            width: 45%;
+            /* padding: 5px; */
             border: 1px solid #007bff;
             border-radius: 5px;
             text-align: center;
+            margin-left: 1px;
         }
 
         .day-container {
@@ -89,6 +93,7 @@
             padding: 10px;
             border: 2px solid #007bff;
             border-radius: 10px;
+            padding-bottom: 100px; /* Add padding to the bottom */
         }
         .delete-btn {
             position: absolute;
@@ -191,7 +196,7 @@
                     <div class="schedule-section">
                         <!-- <h2>Workout Schedule</h2>
                         <h3>Schedule</h3> -->
-                        <label>Work Schedule Title <span class="text-danger">*</span>: </label>
+                        <label>Work Schedule Title <span class="text-danger">*</span> </label>
                         <input type="text" id="searchBar" class="search-bar" placeholder="Title ...">
 
                         <div id="schedule" class="day-container"></div>
@@ -219,6 +224,7 @@
 
 
 
+   
   <script>
         const daysOfWeek = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"];
         const workouts = Array.from({ length: 20 }, (_, i) => ({
@@ -248,7 +254,6 @@
                 workoutDiv.appendChild(text);
                 workoutDiv.draggable = true;
                 workoutDiv.dataset.type = workout.type;
-                workoutDiv.dataset.name = workout.name;
                 
                 workoutDiv.addEventListener("dragstart", (e) => {
                     e.dataTransfer.setData("text/plain", JSON.stringify(workout));
@@ -267,6 +272,7 @@
             dayDiv.dataset.day = day;
             
             dayDiv.addEventListener("dragover", (e) => e.preventDefault());
+            // <img src="${workoutData.image}" alt="${workoutData.name}">
             
             dayDiv.addEventListener("drop", (e) => {
                 e.preventDefault();
@@ -275,40 +281,16 @@
                 const workoutItem = document.createElement("div");
                 workoutItem.classList.add("workout");
                 
-                const img = document.createElement("img");
-                img.src = workoutData.image;
-                img.alt = workoutData.name;
-                
-                const text = document.createElement("span");
-                text.textContent = workoutData.name;
-                
-                const deleteBtn = document.createElement("button");
-                deleteBtn.classList.add("delete-btn");
-                deleteBtn.textContent = "×";
-                deleteBtn.onclick = () => workoutItem.remove();
-                
-                workoutItem.appendChild(img);
-                workoutItem.appendChild(text);
-                
-                if (workoutData.type === "time") {
-                    const input = document.createElement("input");
-                    input.type = "number";
-                    input.placeholder = "Minutes";
-                    workoutItem.appendChild(input);
-                } else {
-                    const setsInput = document.createElement("input");
-                    setsInput.type = "number";
-                    setsInput.placeholder = "Sets";
-                    
-                    const repsInput = document.createElement("input");
-                    repsInput.type = "number";
-                    repsInput.placeholder = "Reps";
-                    
-                    workoutItem.appendChild(setsInput);
-                    workoutItem.appendChild(repsInput);
-                }
-                
-                workoutItem.appendChild(deleteBtn);
+                workoutItem.innerHTML = `
+                    <div style="display: flex; align-items: center; gap: 10px;">
+                        <span>${workoutData.name}</span>
+                    </div>
+                    <div>
+                        ${workoutData.type === "time" ? '<input type="number" placeholder="Minutes">' : '<input type="number" placeholder="Sets"><input type="number" placeholder="Reps">'}
+                    </div>
+                    <button class="delete-btn">×</button>
+                `;
+                workoutItem.querySelector(".delete-btn").addEventListener("click", () => workoutItem.remove());
                 dayDiv.appendChild(workoutItem);
             });
             

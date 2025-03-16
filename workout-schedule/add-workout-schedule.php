@@ -48,7 +48,7 @@
             display: flex;
             align-items: center;
             gap: 10px;
-            padding: 10px;
+            padding: 8px;
             border: 2px solid #007bff;
             border-radius: 10px;
             background: white;
@@ -71,11 +71,11 @@
         }
         .workout input {
             width: 45%;
-            padding: 5px;
+            /* padding: 5px; */
             border: 1px solid #007bff;
             border-radius: 5px;
             text-align: center;
-            margin: 1px;
+            margin-left: 1px;
         }
 
         .day-container {
@@ -93,6 +93,7 @@
             padding: 10px;
             border: 2px solid #007bff;
             border-radius: 10px;
+            padding-bottom: 100px; /* Add padding to the bottom */
         }
         .delete-btn {
             position: absolute;

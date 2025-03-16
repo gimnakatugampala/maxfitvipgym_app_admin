@@ -48,7 +48,7 @@
             display: flex;
             align-items: center;
             gap: 10px;
-            padding: 10px;
+            padding: 8px;
             border: 2px solid #007bff;
             border-radius: 10px;
             background: white;
@@ -71,11 +71,11 @@
         }
         .workout input {
             width: 45%;
-            padding: 5px;
+            /* padding: 5px; */
             border: 1px solid #007bff;
             border-radius: 5px;
             text-align: center;
-            margin: 1px;
+            margin-left: 1px;
         }
 
         .day-container {
@@ -93,6 +93,7 @@
             padding: 10px;
             border: 2px solid #007bff;
             border-radius: 10px;
+            padding-bottom: 100px; /* Add padding to the bottom */
         }
         .delete-btn {
             position: absolute;
@@ -115,14 +116,14 @@
             padding: 10px 20px;
             font-size: 16px;
             color: white;
-            background-color: #dc3545;
+            background-color:rgb(35, 200, 71);
             border: none;
             border-radius: 5px;
             cursor: pointer;
             transition: background 0.3s;
         }
         .reset-btn:hover {
-            background-color: #c82333;
+            background-color: rgb(35, 200, 71);
         }
     </style>
 
@@ -142,7 +143,7 @@
 
             <div class="row wrapper border-bottom white-bg page-heading">
                 <div class="col-lg-10">
-                    <h2>Assign Workout Schedules</h2>
+                    <h2>Workout Schedules</h2>
                     <ol class="breadcrumb">
                         <li class="breadcrumb-item">
                             <a href="index.html">Home</a>
@@ -185,6 +186,7 @@
                     </div>
                     <div class="ibox-content">
 
+                    
                     <div class="row">
                         <div class="col-md-6">
                             <div class="form-group row"><label class="col-lg-2 col-form-label">Member</label>
@@ -207,7 +209,6 @@
                         </div>
                     </div>
 
-
                     <div class="container-fluid">
                     <div class="workout-section">
                         <!-- <h3>Workouts</h3> -->
@@ -216,9 +217,9 @@
                     </div>
                     
                     <div class="schedule-section">
-                      
+
                         <div id="schedule" class="day-container"></div>
-                        <button class="reset-btn" onclick="resetSchedule()">Reset Schedule</button>
+                        <button class="reset-btn" >Assign Schedule</button>
                     </div>
                 </div>
 
@@ -290,6 +291,7 @@
             dayDiv.dataset.day = day;
             
             dayDiv.addEventListener("dragover", (e) => e.preventDefault());
+            // <img src="${workoutData.image}" alt="${workoutData.name}">
             
             dayDiv.addEventListener("drop", (e) => {
                 e.preventDefault();
@@ -300,7 +302,6 @@
                 
                 workoutItem.innerHTML = `
                     <div style="display: flex; align-items: center; gap: 10px;">
-                        <img src="${workoutData.image}" alt="${workoutData.name}">
                         <span>${workoutData.name}</span>
                     </div>
                     <div>

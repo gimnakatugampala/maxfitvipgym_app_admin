@@ -82,8 +82,8 @@
                                     <th>Actions</th>
                                 </tr>
                                 </thead>
-                                <tbody>
-                                <tr class="gradeX">
+                                <tbody id="adminList">
+                                <!-- <tr class="gradeX">
                                     <td>1</td>
                                     <td>GIMNA KATUGAMPALA</td>
                                     <td>gimnakatugampala@gmail.com</td>
@@ -108,7 +108,7 @@
                                         <button class="btn btn-danger " type="button"><i class="fa fa-times" aria-hidden="true"></i></button>
                                         <button class="btn btn-primary " type="button"><i class="fa fa-check" aria-hidden="true"></i></button>
                                     </td>
-                                </tr>
+                                </tr> -->
 
                                 </tbody>
                                 <tfoot>
@@ -213,6 +213,8 @@
     });
 
 </script>
+
+<script src="../scripts/admin_list.js"></script>
 
 </body>
 

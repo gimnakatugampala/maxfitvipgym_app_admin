@@ -30,18 +30,17 @@
                 <!--Continually expanded and constantly improved Inspinia Admin Them (IN+)-->
             </p>
             <!-- <p>Login in. To see it in action.</p> -->
-            <form class="m-t" role="form" action="../dashboard/">
+             <div id="login-message" class="alert d-none mt-3"></div>
+
+             <form id="login-form" class="m-t" role="form">
                 <div class="form-group">
-                    <input type="email" class="form-control" placeholder="Email">
+                    <input type="email" name="email" class="form-control" placeholder="Email" required>
                 </div>
                 <div class="form-group">
-                    <input type="password" class="form-control" placeholder="Password">
+                    <input type="password" name="password" class="form-control" placeholder="Password" required>
                 </div>
                 <button type="submit" class="btn btn-primary block full-width m-b">Login</button>
-
                 <a href="#"><small>Forgot password?</small></a>
-                <!-- <p class="text-muted text-center"><small>Do not have an account?</small></p>
-                <a class="btn btn-sm btn-white btn-block" href="register.html">Create an account</a> -->
             </form>
             <p class="m-t"> <small>Maxfit VIP Gym &copy; <?php echo date("Y"); ?></small> </p>
 
@@ -52,6 +51,7 @@
     <script src="../js/jquery-3.1.1.min.js"></script>
     <script src="../js/popper.min.js"></script>
     <script src="../js/bootstrap.js"></script>
+    <script src="../scripts/login.js"></script>
 
 </body>
 

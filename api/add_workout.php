@@ -12,6 +12,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         exit;
     }
 
+    // Handle image upload
     $imgPath = null;
     if (isset($_FILES['image']) && $_FILES['image']['error'] === 0) {
         $uploadDir = "../uploads/workouts/";
@@ -29,29 +30,44 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         }
     }
 
+    // Insert workout data
     $code = uniqid('W_');
     $stmt = $conn->prepare("INSERT INTO workout (code, name, img, workout_type_id) VALUES (?, ?, ?, ?)");
     $stmt->bind_param("sssi", $code, $name, $imgPath, $workoutType);
 
     if (!$stmt->execute()) {
-        echo json_encode(["success" => false, "message" => "Workout insert failed."]);
+        echo json_encode(["success" => false, "message" => "Workout insert failed: " . $stmt->error]);
         exit;
     }
 
     $workoutId = $stmt->insert_id;
 
-    $videoStmt = $conn->prepare("INSERT INTO workout_video (video, workout_id) VALUES (?, ?)");
+    // Insert workout videos with is_deleted = 0
+    $videoStmt = $conn->prepare("INSERT INTO workout_video (video, is_deleted, workout_id) VALUES (?, 0, ?)");
+    if (!$videoStmt) {
+        echo json_encode(["success" => false, "message" => "Prepare failed: " . $conn->error]);
+        exit;
+    }
+
     foreach ($videos as $videoUrl) {
         $trimmed = trim($videoUrl);
         if (!empty($trimmed)) {
             $videoStmt->bind_param("si", $trimmed, $workoutId);
-            $videoStmt->execute();
+            if (!$videoStmt->execute()) {
+                echo json_encode(["success" => false, "message" => "Video insert failed: " . $videoStmt->error]);
+                exit;
+            }
         }
     }
 
-    echo json_encode(["success" => true, "workout_id" => $workoutId, "message" => "Workout saved successfully."]);
+    echo json_encode([
+        "success" => true,
+        "workout_id" => $workoutId,
+        "message" => "Workout saved successfully."
+    ]);
     exit;
 } else {
     echo json_encode(["success" => false, "message" => "Invalid request method."]);
+    exit;
 }
 ?>

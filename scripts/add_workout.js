@@ -25,23 +25,30 @@ $(document).ready(function () {
             contentType: false,
             processData: false,
             success: function (response) {
-                try {
-                    let data = JSON.parse(response);
-                    if (data.success) {
-                        alert(data.message);
-                        $('#addWorkoutForm')[0].reset();
-                        $('#videoContainer').html('');
-                        addVideoInput();
-                    } else {
-                        alert("Error: " + (data.message || 'Failed to save workout.'));
-                    }
-                } catch (err) {
-                    console.error(err);
-                    alert("Unexpected server response.");
+                // `response` is already an object, no need to parse again
+                if (response.success) {
+                    Swal.fire({
+                        icon: 'success',
+                        title: 'Success',
+                        text: response.message,
+                    });
+                    $('#addWorkoutForm')[0].reset();
+                    $('#videoContainer').html('');
+                    addVideoInput();
+                } else {
+                    Swal.fire({
+                        icon: 'error',
+                        title: 'Error',
+                        text: response.message || 'Failed to save workout.',
+                    });
                 }
             },
             error: function () {
-                alert("Failed to submit workout.");
+                Swal.fire({
+                    icon: 'error',
+                    title: 'Error',
+                    text: 'Failed to submit workout.',
+                });
             }
         });
     });

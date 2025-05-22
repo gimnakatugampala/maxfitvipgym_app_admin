@@ -78,21 +78,10 @@
                                     <th>Actions</th>
                                 </tr>
                                 </thead>
-                                <tbody>
-                                <tr class="gradeX">
-                                    <td><img alt="image" class="rounded-circle" src="../img/profile_small.jpg"/></td>
-                                    <td>Bench Press</td>
-                                    <td>By Duration</td>
-                                    <td class="center"><a href="../workouts/edit_workout.php" type="button" class="btn btn-success"><i class="fa fa-pencil" aria-hidden="true"></i>                                    </a></td>
-                                </tr>
-                                <tr class="gradeC">
-                                    <td><img alt="image" class="rounded-circle" src="../img/profile_small.jpg"/></td>
-                                    <td>Bench Press II</td>
-                                    <td>By Set</td>
-                                    <td class="center"><a href="../workouts/edit_workout.php" type="button" class="btn btn-success"><i class="fa fa-pencil" aria-hidden="true"></i></a></td>
-                                </tr>
-
+                                <tbody id="workoutTableBody">
+                                <!-- Rows will be injected here by JS -->
                                 </tbody>
+
                                 <tfoot>
                                 <tr>
                                     <td colspan="5">
@@ -195,6 +184,8 @@
         });
 
     </script>
+
+    <script src="../scripts/get_workouts.js"></script>
 
 </body>
 

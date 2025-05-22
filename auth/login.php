@@ -37,8 +37,16 @@
                     <input type="email" name="email" class="form-control" placeholder="Email" required>
                 </div>
                 <div class="form-group">
-                    <input type="password" name="password" class="form-control" placeholder="Password" required>
+                <div class="input-group">
+                    <input type="password" name="password" class="form-control" placeholder="Password" required id="password">
+                    <div class="input-group-append">
+                        <button class="btn btn-outline-secondary toggle-password" type="button">
+                            <i class="fa fa-eye-slash"></i>
+                        </button>
+                    </div>
                 </div>
+            </div>
+
                 <button type="submit" class="btn btn-primary block full-width m-b">Login</button>
                 <a href="#"><small>Forgot password?</small></a>
             </form>

@@ -1,4 +1,17 @@
 $(document).ready(function () {
+    $('.toggle-password').on('click', function () {
+        const passwordField = $('#password');
+        const icon = $(this).find('i');
+        const type = passwordField.attr('type') === 'password' ? 'text' : 'password';
+        
+        passwordField.attr('type', type);
+        icon.toggleClass('fa-eye fa-eye-slash');
+    });
+});
+
+
+
+$(document).ready(function () {
     $('#login-form').on('submit', function (e) {
         e.preventDefault();
 

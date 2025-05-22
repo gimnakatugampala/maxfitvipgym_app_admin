@@ -1,3 +1,12 @@
+<?php
+
+session_start();
+if (!isset($_SESSION['admin_id'])) {
+    header("Location: ../auth/login.php");
+    exit;
+}
+?>
+
 <link href="../css/bootstrap.min.css" rel="stylesheet">
 <link href="../font-awesome/css/font-awesome.css" rel="stylesheet">
 
@@ -39,6 +48,8 @@
 
 <link href="../css/plugins/slick/slick.css" rel="stylesheet">
 <link href="../css/plugins/slick/slick-theme.css" rel="stylesheet">
+
+
 
 
 

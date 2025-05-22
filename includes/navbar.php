@@ -1,4 +1,6 @@
 
+
+
 <div class="row border-bottom">
             <nav class="navbar navbar-static-top" role="navigation" style="margin-bottom: 0">
                 <div class="navbar-header">
@@ -112,10 +114,11 @@
 
 
                     <li>
-                        <a href="login.html">
-                            <i class="fa fa-sign-out"></i> Log out
-                        </a>
-                    </li>
+                    <a href="#" id="logout-btn">
+                        <i class="fa fa-sign-out"></i> Log out
+                    </a>
+                </li>
+
                 </ul>
 
             </nav>

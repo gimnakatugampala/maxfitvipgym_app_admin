@@ -47,52 +47,53 @@
           
                 <div class="col-lg-12">
                     <div class="ibox ">
-                        <div class="wrapper wrapper-content animated fadeInRight ecommerce">
+                    <div class="wrapper wrapper-content animated fadeInRight ecommerce">
 
-            <div class="row">
-                <div class="col-lg-12">
-                    <div class="card">
-                        <div>
-                            <fieldset class="p-4">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="card">
+        
+                        <form id="addAdminForm">
+                        <fieldset class="p-4">
                             <legend><h2>Add Admin</h2></legend>
 
+                                <!-- Add this to display messages -->
+                                    <div id="responseMessage" class="mb-2"></div>
+
                             <div class="form-group row">
                                 <div class="col-sm-10">
-                                <label class="col-form-label">Full Name <span class="text-danger">*</span>:</label>
-                                    <input type="text" class="form-control" >
+                                    <label class="col-form-label">Full Name <span class="text-danger">*</span>:</label>
+                                    <input type="text" class="form-control" name="full_name" required>
                                 </div>
                             </div>
                             <div class="form-group row">
                                 <div class="col-sm-10">
-                                <label class="col-form-label">Email <span class="text-danger">*</span>:</label>
-                                    <input type="email" class="form-control" >
+                                    <label class="col-form-label">Email <span class="text-danger">*</span>:</label>
+                                    <input type="email" class="form-control" name="email" required>
                                 </div>
                             </div>
                             <div class="form-group row">
                                 <div class="col-sm-10">
-                                <label class="col-form-label">Password <span class="text-danger">*</span>:</label>
-                                    <input type="password" class="form-control" >
+                                    <label class="col-form-label">Password <span class="text-danger">*</span>:</label>
+                                    <input type="password" class="form-control" name="password" required>
                                 </div>
                             </div>
                             <div class="form-group row">
                                 <div class="col-sm-10">
-                                <label class="col-form-label">Confirm Password <span class="text-danger">*</span>:</label>
-                                    <input type="password" class="form-control" >
+                                    <label class="col-form-label">Confirm Password <span class="text-danger">*</span>:</label>
+                                    <input type="password" class="form-control" name="confirm_password" required>
                                 </div>
                             </div>
 
-                            <button class="ladda-button btn btn-primary" data-style="expand-right">Submit</button>
-                           
-                          
-                            
+                           <button type="submit" id="submitBtn" class="ladda-button btn btn-primary" data-style="expand-right">Submit</button>
+
                         </fieldset>
-                        
+                    </form>
                     </div>
-                    
                 </div>
-            </div>
+                </div>
 
-        </div>
+
                     </div>
                 </div>
             
@@ -188,6 +189,10 @@ $(document).ready(function () {
         });
 
     </script>
+
+
+<script src="../scripts/add_admin.js"></script>
+<?php include  '../api/add_admin_ajax.php';?>
 
 </body>
 

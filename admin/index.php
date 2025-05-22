@@ -140,6 +140,9 @@
             radioClass: 'iradio_square-green',
         });
     });
+
+
+
 </script>
 
 <script>
@@ -215,6 +218,48 @@
 </script>
 
 <script src="../scripts/admin_list.js"></script>
+
+<script>
+
+    
+  $(document).on('click', '.toggle-status', function () {
+    const button = $(this);
+    const userId = button.data('id');
+    const newStatus = button.data('status');
+    const actionText = newStatus === 1 ? 'activate' : 'deactivate';
+
+    if (confirm(`Are you sure you want to ${actionText} this admin?`)) {
+        $.ajax({
+            url: '../api/toggle_admin_status.php',
+            method: 'POST',
+            data: { id: userId, status: newStatus },
+            success: function (response) {
+                if (response.status === 'success') {
+                    // Toggle button and badge in real time without reloading everything
+                    button.data('status', newStatus === 1 ? 0 : 1);
+                    button
+                        .toggleClass('btn-danger btn-primary')
+                        .html(`<i class="fa ${newStatus === 1 ? 'fa-times' : 'fa-check'}"></i> ${newStatus === 1 ? 'Deactivate' : 'Activate'}`);
+
+                    // Update status badge in the same row
+                    const badge = button.closest('tr').find('td:eq(4) span');
+                    badge
+                        .toggleClass('badge-primary badge-danger')
+                        .text(newStatus === 1 ? 'Active' : 'Inactive');
+                } else {
+                    alert(response.message || 'Failed to update status.');
+                }
+            },
+            error: function () {
+                alert('Server error occurred.');
+            }
+        });
+    }
+});
+
+</script>
+
+<?php include '../api/toggle_admin_status.php'; ?>
 
 </body>
 

@@ -19,10 +19,16 @@ $(document).ready(function () {
                                         : '<span class="badge badge-danger">Inactive</span>'}
                                 </td>
                                 <td>System</td> <!-- Placeholder for created_by -->
-                                <td class="center">
-                                    <button class="btn btn-danger" type="button"><i class="fa fa-times"></i></button>
-                                    <button class="btn btn-primary" type="button"><i class="fa fa-check"></i></button>
-                                </td>
+                              <td class="center">
+    <button class="btn btn-sm ${admin.is_active == 1 ? 'btn-danger' : 'btn-primary'} toggle-status" 
+            data-id="${admin.id}" 
+            data-status="${admin.is_active == 1 ? 0 : 1}">
+        <i class="fa ${admin.is_active == 1 ? 'fa-times' : 'fa-check'}"></i>
+        ${admin.is_active == 1 ? 'Deactivate' : 'Activate'}
+    </button>
+</td>
+
+
                             </tr>
                         `;
                     });

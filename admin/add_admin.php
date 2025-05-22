@@ -72,18 +72,34 @@
                                     <input type="email" class="form-control" name="email" required>
                                 </div>
                             </div>
-                            <div class="form-group row">
-                                <div class="col-sm-10">
-                                    <label class="col-form-label">Password <span class="text-danger">*</span>:</label>
-                                    <input type="password" class="form-control" name="password" required>
-                                </div>
-                            </div>
-                            <div class="form-group row">
-                                <div class="col-sm-10">
-                                    <label class="col-form-label">Confirm Password <span class="text-danger">*</span>:</label>
-                                    <input type="password" class="form-control" name="confirm_password" required>
-                                </div>
-                            </div>
+                           <div class="form-group row">
+    <div class="col-sm-10">
+        <label class="col-form-label">Password <span class="text-danger">*</span>:</label>
+        <div class="input-group">
+            <input type="password" class="form-control" name="password" id="password" required>
+            <div class="input-group-append">
+                <button class="btn btn-outline-secondary toggle-password" type="button" data-target="#password">
+                    Show
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="form-group row">
+    <div class="col-sm-10">
+        <label class="col-form-label">Confirm Password <span class="text-danger">*</span>:</label>
+        <div class="input-group">
+            <input type="password" class="form-control" name="confirm_password" id="confirm_password" required>
+            <div class="input-group-append">
+                <button class="btn btn-outline-secondary toggle-password" type="button" data-target="#confirm_password">
+                    Show
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+
 
                            <button type="submit" id="submitBtn" class="ladda-button btn btn-primary" data-style="expand-right">Submit</button>
 
@@ -117,6 +133,16 @@ $(document).ready(function () {
         radioClass: 'iradio_square-green',
     });
 });
+
+   $(document).ready(function () {
+        $('.toggle-password').click(function () {
+            const target = $($(this).data('target'));
+            const type = target.attr('type') === 'password' ? 'text' : 'password';
+            target.attr('type', type);
+            $(this).text(type === 'password' ? 'Show' : 'Hide');
+        });
+    });
+
 </script>
 
 <script>

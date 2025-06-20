@@ -52,15 +52,16 @@
                                 <li><a class="nav-link" data-toggle="tab" href="#tab-2"> Videos</a></li>
                             </ul>
 
-                            
+
                             <form id="editWorkoutForm" enctype="multipart/form-data">
+                                 <input type="hidden" id="workoutId" value="<?= $_GET['id'] ?? 0 ?>">
                             <div class="tab-content">
 
                                 <div id="tab-1" class="tab-pane active">
                                     <div class="panel-body">
                                         
                                             
-                                            <input type="hidden" id="workoutId" value="<?= $_GET['id'] ?? 0 ?>">
+                                           
                                         <div class="tab-content">
                                             <!-- Workout Info -->
                                             <div id="tab-1" class="tab-pane active">
@@ -161,7 +162,7 @@
 </script>
 
 
-<script>
+<!-- <script>
 
     $(document).ready(function (){
 
@@ -202,7 +203,7 @@
 
     });
 
-</script>
+</script> -->
 
     <!-- Page-Level Scripts -->
     <script>

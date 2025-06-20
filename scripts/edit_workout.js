@@ -14,10 +14,14 @@ $(document).ready(function () {
 
     // Load workout info
     $.getJSON('../api/get_edit_work.php', { id: workoutId }, function (res) {
+           console.log("API Response:", res);
         if (res.workout) {
             $('input[name="name"]').val(res.workout.name);
             $('input[name="workout_type"][value="' + res.workout.workout_type + '"]').prop('checked', true).iCheck('update');
-            $('#previewImage').attr('src', '../uploads/' + res.workout.image);
+   $('#previewImage').attr('src', '../' + res.workout.image);
+
+
+
 
             $('#videoContainer').empty();
             if (res.videos.length > 0) {
@@ -70,26 +74,30 @@ $(document).ready(function () {
     });
 
     // Helper: Add video input
-      function addVideoInput() {
-        const videoHTML = `
-            <div class="video-entry mb-3 p-3 border rounded">
-                <div class="form-group row">
-                    <label class="col-sm-2 col-form-label">YouTube URL</label>
-                    <div class="col-sm-8">
-                        <input type="text" name="video_urls[]" class="form-control yt-url" placeholder="https://www.youtube.com/watch?v=..." oninput="updatePreview(this)">
-                    </div>
-                    <div class="col-sm-2">
-                        <button type="button" class="btn btn-danger remove-video">Remove</button>
-                    </div>
+ function addVideoInput(url = '') {
+    const videoID = getYouTubeID(url);
+    const iframeHTML = videoID ? `<iframe width="300" height="170" class="yt-preview" src="https://www.youtube.com/embed/${videoID}" frameborder="0" allowfullscreen></iframe>` : `<iframe width="300" height="170" class="yt-preview d-none" frameborder="0" allowfullscreen></iframe>`;
+
+    const videoHTML = `
+        <div class="video-entry mb-3 p-3 border rounded">
+            <div class="form-group row">
+                <label class="col-sm-2 col-form-label">YouTube URL</label>
+                <div class="col-sm-8">
+                    <input type="text" name="video_urls[]" class="form-control yt-url" placeholder="https://www.youtube.com/watch?v=..." value="${url}" oninput="updatePreview(this)">
                 </div>
-                <div class="row">
-                    <div class="offset-sm-2 col-sm-10">
-                        <iframe width="300" height="170" class="yt-preview d-none" frameborder="0" allowfullscreen></iframe>
-                    </div>
+                <div class="col-sm-2">
+                    <button type="button" class="btn btn-danger remove-video">Remove</button>
                 </div>
-            </div>`;
-        $('#videoContainer').append(videoHTML);
-    }
+            </div>
+            <div class="row">
+                <div class="offset-sm-2 col-sm-10">
+                    ${iframeHTML}
+                </div>
+            </div>
+        </div>`;
+    $('#videoContainer').append(videoHTML);
+}
+
 });
 
 function updatePreview(input) {

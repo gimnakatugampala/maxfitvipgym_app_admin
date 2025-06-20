@@ -39,9 +39,9 @@
                         </li>
                     </ol>
                 </div>
-                <div class="col-lg-2">
-
-                </div>
+            <div class="col-lg-2">
+                <a href="../workout-schedule/add-workout-schedule.php" class="btn btn-primary mt-4 btn-lg"><i class="fa fa-plus" aria-hidden="true"></i> Add Workout Schedules</a>
+            </div>
             </div>
         <div class="wrapper wrapper-content animated fadeInRight">
             <div class="row">

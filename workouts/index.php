@@ -38,6 +38,9 @@
                     </li>
                 </ol>
             </div>
+            <div class="col-lg-2">
+                <a href="../workouts/add_workout.php" class="btn btn-primary mt-4 btn-lg"><i class="fa fa-plus" aria-hidden="true"></i> Add Workout</a>
+            </div>
         </div>
 
         <div class="wrapper wrapper-content animated fadeInRight ecommerce">
@@ -64,6 +67,7 @@
                                     <i class="fa fa-times"></i>
                                 </a>
                             </div>
+                            
                         </div>
                         <div class="ibox-content">
                             <input type="text" class="form-control form-control-sm m-b-xs" id="filter"

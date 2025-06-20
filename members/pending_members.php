@@ -78,7 +78,6 @@
                         <th>Full Name</th>
                         <th>Phone Number</th>
                         <th>Member Since</th>
-                        <th>Active Date</th>
                         <th>Actions</th>
                     </tr>
                     </thead>
@@ -89,24 +88,12 @@
                         <td>GIMNA KATUGAMPALA</td>
                         <td class="center">0764961707</td>
                         <td class="center">4 months ago</td>
-                        <td class="center">1 months ago</td>
                         <td class="center">
-                            <a href="../members/member_details.php" type="button" class="btn btn-primary"><i class="fa fa-eye" aria-hidden="true"></i></a>
-                            <button data-toggle="modal" data-target="#myModal5" type="button" class="btn btn-success"><i class="fa fa-line-chart" aria-hidden="true"></i></button>
+                            <button type="button" class="btn btn-primary"><i class="fa fa-check" aria-hidden="true"></i> Activate</button>
+                            <button type="button" class="btn btn-danger"><i class="fa fa-times" aria-hidden="true"></i> Deactivate</button>
                         </td>
                     </tr>
-                    <tr class="gradeC">
-                        <td>2</td>
-                        <td>NDIJU59045</td>
-                        <td>JOHN SMITH</td>
-                        <td class="center">0764961343</td>
-                        <td class="center">19 days ago</td>
-                        <td class="center">1 day ago</td>
-                        <td class="center">
-                            <a href="../members/member_details.php" type="button" class="btn btn-primary"><i class="fa fa-eye" aria-hidden="true"></i></a>
-                            <button data-toggle="modal" data-target="#myModal5" type="button" class="btn btn-success"><i class="fa fa-line-chart" aria-hidden="true"></i></button>
-                        </td>
-                    </tr>
+    
                 
                     </tbody>
                     <tfoot>
@@ -116,7 +103,6 @@
                         <th>Full Name</th>
                         <th>Phone Number</th>
                         <th>Member Since</th>
-                        <th>Active Date</th>
                         <th>Actions</th>
                     </tr>
                     </tfoot>

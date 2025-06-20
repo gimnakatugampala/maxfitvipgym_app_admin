@@ -51,13 +51,15 @@
                                 <li><a class="nav-link active" data-toggle="tab" href="#tab-1"> Workout info</a></li>
                                 <li><a class="nav-link" data-toggle="tab" href="#tab-2"> Videos</a></li>
                             </ul>
+
+                            
+                            <form id="editWorkoutForm" enctype="multipart/form-data">
                             <div class="tab-content">
+
                                 <div id="tab-1" class="tab-pane active">
                                     <div class="panel-body">
                                         
-                                        
-                                        <fieldset>
-                                            <form id="editWorkoutForm" enctype="multipart/form-data">
+                                            
                                             <input type="hidden" id="workoutId" value="<?= $_GET['id'] ?? 0 ?>">
                                         <div class="tab-content">
                                             <!-- Workout Info -->
@@ -94,37 +96,30 @@
                                            
                                         </div>
 
-                                    <!-- Submit -->
+                                    
+                                            
+                            
+                                </div>
+                            </div> <!--  tab 1 -->
+
+                                <div id="tab-2" class="tab-pane">
+                                    <div class="panel-body">
+                                        <div id="videoContainer"></div>
+                                        <div class="form-group">
+                                            <button type="button" class="btn btn-secondary" id="addVideoBtn">Add Video</button>
+                                        </div>
+                                    </div>
+                                </div>
+
+
+                            </div>
+                            <!-- Submit -->
                                     <div class="form-group row m-3">
                                         <div class="col-sm-12 text-right">
                                             <button type="submit" class="ladda-button btn btn-primary" data-style="expand-right">Update Workout</button>
                                         </div>
                                     </div>
-                                </form>
-
-                                           
-                                        </fieldset>
-
-                                    </div>
-                                </div>
-
-                                <div id="tab-2" class="tab-pane">
-                                    <div class="panel-body">
-
-                                 <div id="tab-2" class="tab-pane">
-                                                <div class="panel-body">
-                                                    <div id="videoContainer"></div>
-                                                    <div class="form-group">
-                                                        <button type="button" class="btn btn-secondary" id="addVideoBtn">Add Video</button>
-                                                    </div>
-                                                </div>
-                                            </div>
-
-                                      
-
-                                    </div>
-                                </div>
-                            </div>
+                              </form> 
                     </div>
                 </div>
             </div>

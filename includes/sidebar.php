@@ -54,6 +54,7 @@
                 <a href="#"><i class="fa fa-edit"></i> <span class="nav-label">Members</span><span class="fa arrow"></span></a>
                 <ul class="nav nav-second-level collapse">
                         <li <?php echo ($_SERVER['REQUEST_URI'] == "/maxfit_gym_admin/members/") ? 'class="active"' : '';   ?> ><a href="../members/">Members List</a></li>
+                        <li <?php echo ($_SERVER['REQUEST_URI'] == "/maxfit_gym_admin/pending_members/") ? 'class="active"' : '';   ?> ><a href="../members/pending_members.php">Pending Members</a></li>
                         <li <?php echo ($_SERVER['REQUEST_URI'] == "/maxfit_gym_admin/members/attendance.php") ? 'class="active"' : '';   ?> ><a href="../members/attendance.php">Attendance</a></li>
                     </ul>
                 </li>

@@ -131,7 +131,7 @@
                 </div>
             </div>
 
-            <div class="col-lg-12">
+            <!-- <div class="col-lg-12">
                 <div class="ibox ">
                     <div class="ibox-title">
                         <h5>Today Active Members</h5>
@@ -160,7 +160,7 @@
                         </div>
                     </div>
                 </div>
-            </div>
+            </div> -->
         </div>
 
 

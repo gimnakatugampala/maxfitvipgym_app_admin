@@ -14,7 +14,7 @@ $(document).ready(function () {
 
     // Load workout info
     $.getJSON('../api/get_edit_work.php', { id: workoutId }, function (res) {
-           console.log("API Response:", res);
+        //    console.log("API Response:", res);
         if (res.workout) {
             $('input[name="name"]').val(res.workout.name);
             $('input[name="workout_type"][value="' + res.workout.workout_type + '"]').prop('checked', true).iCheck('update');
@@ -62,13 +62,26 @@ $(document).ready(function () {
             processData: false,
             contentType: false,
             success: function (res) {
-                const json = JSON.parse(res);
-                if (json.success) {
-                    alert('Workout updated successfully!');
-                    window.location.href = 'workouts.php';
+                // const json = JSON.parse(res);
+                console.log(res)
+              if (res.success) {
+                    Swal.fire({
+                        icon: 'success',
+                        title: 'Updated!',
+                        text: 'Workout updated successfully!',
+                        timer: 2000,
+                        showConfirmButton: false
+                    }).then(() => {
+                        window.location.href = '../workouts/';
+                    });
                 } else {
-                    alert('Update failed.');
+                    Swal.fire({
+                        icon: 'error',
+                        title: 'Oops...',
+                        text: 'Update failed. Please try again.'
+                    });
                 }
+
             }
         });
     });

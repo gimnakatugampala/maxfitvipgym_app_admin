@@ -171,7 +171,7 @@
                 10GB of <strong>250GB</strong> Free.
             </div>
             <div>
-                <strong>Copyright</strong> Example Company &copy; 2014-2018
+                <strong>Copyright</strong> Maxfitvipgym &copy; 2025
             </div>
         </div>
         </div>

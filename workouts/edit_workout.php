@@ -58,7 +58,7 @@
                                         
                                         <fieldset>
                                             <form id="editWorkoutForm" enctype="multipart/form-data">
-                                 <input type="hidden" id="workoutId" value="<?= $_GET['id'] ?? 0 ?>">
+                                            <input type="hidden" id="workoutId" value="<?= $_GET['id'] ?? 0 ?>">
                                         <div class="tab-content">
                                             <!-- Workout Info -->
                                             <div id="tab-1" class="tab-pane active">
@@ -91,15 +91,7 @@
                                                 </div>
                                             </div>
 
-                                            <!-- YouTube Videos -->
-                                            <div id="tab-2" class="tab-pane">
-                                                <div class="panel-body">
-                                                    <div id="videoContainer"></div>
-                                                    <div class="form-group">
-                                                        <button type="button" class="btn btn-secondary" id="addVideoBtn">Add Video</button>
-                                                    </div>
-                                                </div>
-                                            </div>
+                                           
                                         </div>
 
                                     <!-- Submit -->
@@ -116,46 +108,22 @@
                                     </div>
                                 </div>
 
-                                <!-- <div id="tab-2" class="tab-pane">
+                                <div id="tab-2" class="tab-pane">
                                     <div class="panel-body">
 
-                                        <div class="table-responsive">
-                                            <table class="table table-bordered table-stripped">
-                                                <thead>
-                                                <tr>
-                                                    <th>
-                                                        Video preview
-                                                    </th>
-                                                    <th>
-                                                        Youtube url
-                                                    </th>
-                                                </tr>
-                                                </thead>
-                                                <tbody>
-                                                <tr>
-                                                    <td>
-                                                        <figure>
-                                                            <iframe width="200" height="100" src="http://www.youtube.com/embed/bwj2s_5e12U" frameborder="0" allowfullscreen></iframe>
-                                                        </figure>
-                                                    </td>
-                                                    <td>
-                                                        <input type="text" class="form-control"  value="http://mydomain.com/images/image1.png">
-                                                    </td>
-                                                   
-                                                  
-                                                </tr>
-                                                </tbody>
-                                            </table>
-                                        </div>
+                                 <div id="tab-2" class="tab-pane">
+                                                <div class="panel-body">
+                                                    <div id="videoContainer"></div>
+                                                    <div class="form-group">
+                                                        <button type="button" class="btn btn-secondary" id="addVideoBtn">Add Video</button>
+                                                    </div>
+                                                </div>
+                                            </div>
 
-                                        <div class="form-group row">
-                                            <div class="col-sm-6">
-                                                <button class="ladda-button btn btn-primary" data-style="expand-right">Update</button>
-                                            </div>
-                                            </div>
+                                      
 
                                     </div>
-                                </div> -->
+                                </div>
                             </div>
                     </div>
                 </div>

@@ -1,5 +1,7 @@
 document.addEventListener("DOMContentLoaded", function () {
     const daysOfWeek = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"];
+    const restDays = ["Sunday", "Wednesday"];
+
     let workouts = [];
 
     const workoutListDiv = document.getElementById("workoutList");
@@ -50,44 +52,91 @@ document.addEventListener("DOMContentLoaded", function () {
             .catch(err => console.error("Error fetching workouts", err));
     }
 
-    function renderDaysOfWeek() {
-        daysOfWeek.forEach(day => {
-            const dayDiv = document.createElement("div");
-            dayDiv.classList.add("day");
-            dayDiv.textContent = day;
-            dayDiv.dataset.day = day;
+function renderDaysOfWeek() {
+    daysOfWeek.forEach(day => {
+        const dayDiv = document.createElement("div");
+        dayDiv.classList.add("day");
+        dayDiv.dataset.day = day;
 
-            dayDiv.addEventListener("dragover", (e) => e.preventDefault());
+        const header = document.createElement("div");
+        header.style.marginBottom = "10px";
 
-            dayDiv.addEventListener("drop", (e) => {
-                e.preventDefault();
-                const workoutData = JSON.parse(e.dataTransfer.getData("text/plain"));
+        const label = document.createElement("label");
+        label.style.display = "flex";
+        label.style.alignItems = "center";
+        label.style.justifyContent = "center";
 
-                const workoutItem = document.createElement("div");
-                workoutItem.classList.add("workout");
+        const checkbox = document.createElement("input");
+        checkbox.type = "checkbox";
+        checkbox.style.marginRight = "5px";
+        checkbox.checked = false;
 
-                workoutItem.innerHTML = `
-                    <div style="display: flex; align-items: center; gap: 10px;">
-                        <span>${workoutData.name}</span>
-                    </div>
-                    <div>
-                        ${
-                            workoutData.type === "time"
-                                ? '<input type="number" placeholder="Minutes">'
-                                : '<input type="number" placeholder="Sets"><input type="number" placeholder="Reps">'
-                        }
-                    </div>
-                    <button class="delete-btn">×</button>
-                `;
+        const span = document.createElement("span");
+        span.textContent = `${day}`;
+        span.style.color = "#999";
 
-                workoutItem.querySelector(".delete-btn").addEventListener("click", () => workoutItem.remove());
+        label.appendChild(checkbox);
+        label.appendChild(span);
+        header.appendChild(label);
 
-                dayDiv.appendChild(workoutItem);
-            });
+        dayDiv.appendChild(header);
 
-            scheduleDiv.appendChild(dayDiv);
+        // Initial behavior: allow drop
+        setupDroppable(dayDiv, checkbox);
+
+        // Toggle behavior on checkbox change
+        checkbox.addEventListener("change", () => {
+            if (checkbox.checked) {
+                // Clear workouts & disable drag-drop
+                [...dayDiv.querySelectorAll(".workout")].forEach(el => el.remove());
+                dayDiv.classList.add("rest-day");
+            } else {
+                // Enable drag-drop again
+                dayDiv.classList.remove("rest-day");
+            }
+            setupDroppable(dayDiv, checkbox); // Re-apply drag-drop logic
+        });
+
+        scheduleDiv.appendChild(dayDiv);
+    });
+}
+
+function setupDroppable(dayDiv, checkbox) {
+    // Remove previous handlers
+    dayDiv.ondragover = null;
+    dayDiv.ondrop = null;
+
+    if (!checkbox.checked) {
+        dayDiv.addEventListener("dragover", (e) => e.preventDefault());
+
+        dayDiv.addEventListener("drop", (e) => {
+            e.preventDefault();
+            const workoutData = JSON.parse(e.dataTransfer.getData("text/plain"));
+
+            const workoutItem = document.createElement("div");
+            workoutItem.classList.add("workout");
+
+            workoutItem.innerHTML = `
+                <div style="display: flex; align-items: center; gap: 10px;">
+                    <span>${workoutData.name}</span>
+                </div>
+                <div>
+                    ${
+                        workoutData.type === "time"
+                            ? '<input type="number" placeholder="Minutes">'
+                            : '<input type="number" placeholder="Sets"><input type="number" placeholder="Reps">'
+                    }
+                </div>
+                <button class="delete-btn">×</button>
+            `;
+
+            workoutItem.querySelector(".delete-btn").addEventListener("click", () => workoutItem.remove());
+            dayDiv.appendChild(workoutItem);
         });
     }
+}
+
+
 
     function resetSchedule() {
         document.querySelectorAll(".day").forEach(day => {

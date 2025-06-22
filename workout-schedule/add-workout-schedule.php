@@ -125,6 +125,12 @@
         .reset-btn:hover {
             background-color: #c82333;
         }
+        .rest-day {
+    background-color: #f8d7da;
+    opacity: 0.6;
+    pointer-events: none;
+}
+
     </style>
 
 

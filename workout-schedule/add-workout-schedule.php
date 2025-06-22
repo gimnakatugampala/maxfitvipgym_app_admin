@@ -224,8 +224,9 @@
 
 
 
+  <script src="../scripts/get_all_workouts.js"></script>
    
-  <script>
+  <!-- <script>
         const daysOfWeek = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"];
         const workouts = Array.from({ length: 20 }, (_, i) => ({
             name: `Workout ${i + 1}`,
@@ -302,7 +303,7 @@
         }
 
         renderWorkouts();
-    </script>
+    </script> -->
 
 </body>
 

@@ -62,16 +62,32 @@ function saveSchedule(workoutsData) {
     .then(res => res.json())
     .then(data => {
         if (data.success) {
-            alert('Schedule saved!');
+            Swal.fire({
+                icon: 'success',
+                title: 'Success!',
+                text: 'Schedule has been saved successfully.',
+                confirmButtonColor: '#28a745'
+            });
         } else {
-            alert('Failed: ' + data.message);
+            Swal.fire({
+                icon: 'error',
+                title: 'Save Failed',
+                text: data.message || 'Something went wrong while saving the schedule.',
+                confirmButtonColor: '#dc3545'
+            });
         }
     })
     .catch(err => {
         console.error('Error saving schedule:', err);
-        alert('An error occurred while saving.');
+        Swal.fire({
+            icon: 'error',
+            title: 'Error',
+            text: 'An unexpected error occurred.',
+            confirmButtonColor: '#dc3545'
+        });
     });
 }
+
 
 // Attach event listener (you can call this from your main script after DOM is ready)
 function initializeScheduleSaveButton(workoutsData) {

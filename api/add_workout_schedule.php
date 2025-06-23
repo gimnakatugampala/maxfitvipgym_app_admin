@@ -60,21 +60,30 @@ foreach ($schedule as $day => $workouts) {
 }
 
 // Insert rest days
+// Insert rest days
 foreach ($rest_days as $day) {
     $day_id = getDayId($day);
+    $workout_id = null;
+    $order = 0;
+    $set_no = null;
+    $rep_no = null;
+    $duration = null;
+    $is_rest_day = 1;
+
     $insertStmt->bind_param(
         "iiiisssi",
         $schedule_id,
         $day_id,
-        $null = null,
-        $order = 0,
-        $null,
-        $null,
-        $null,
-        $is_rest_day = 1
+        $workout_id,
+        $order,
+        $set_no,
+        $rep_no,
+        $duration,
+        $is_rest_day
     );
     $insertStmt->execute();
 }
+
 
 $insertStmt->close();
 

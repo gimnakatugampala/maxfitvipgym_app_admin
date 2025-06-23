@@ -70,51 +70,22 @@
                     <div class="ibox-content">
 
                         <div class="table-responsive">
-                    <table class="table table-striped table-bordered table-hover dataTables-example" >
-                    <thead>
-                    <tr>
-                        <th>#ID</th>
-                        <th>Name</th>
-                        <th>Workout days</th>
-                        <th>Actions</th>
-                    </tr>
-                    </thead>
-                    <tbody>
-                    <tr class="gradeX">
-                        <td>1</td>
-                        <td>Standard Chart</td>
-                        <td>
-                            <span class="badge badge-primary">4 workout days</span>
-                            <span class="badge badge-danger">1 rest day</span>
-                        </td>
-                        <td class="center">
-                            <a href="../workout-schedule/edit-work-schedule.php" type="button" class="btn btn-primary"><i class="fa fa-pencil" aria-hidden="true"></i>                            </a>
-                            <!-- <button data-toggle="modal" data-target="#myModal5" type="button" class="btn btn-success"><i class="fa fa-line-chart" aria-hidden="true"></i></button> -->
-                        </td>
-                    </tr>
-                    <tr class="gradeC">
-                        <td>2</td>
-                        <td>Beginner Chart</td>
-                        <td>
-                        <span class="badge badge-primary">4 workout days</span>
-                        <span class="badge badge-danger">1 rest day</span>
-                        </td>
-                        <td class="center">
-                            <a href="../workout-schedule/edit-work-schedule.php" type="button" class="btn btn-primary"><i class="fa fa-pencil" aria-hidden="true"></i>
-                            </a>
-                            <!-- <button data-toggle="modal" data-target="#myModal5" type="button" class="btn btn-success"><i class="fa fa-line-chart" aria-hidden="true"></i></button> -->
-                        </td>
-                    </tr>
-                
-                    </tbody>
-                    <tfoot>
-                    <tr>
-                    <th>#ID</th>
-                        <th>Name</th>
-                        <th>Actions</th>
-                    </tr>
-                    </tfoot>
-                    </table>
+                 <table class="table table-striped table-bordered table-hover dataTables-example">
+    <thead>
+        <tr>
+            <th>#ID</th>
+            <th>Name</th>
+            <th>Workout days</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody id="scheduleTableBody">
+        <tr>
+            <td colspan="4">Loading schedules...</td>
+        </tr>
+    </tbody>
+</table>
+
                         </div>
 
                     </div>
@@ -183,6 +154,8 @@
 
 
   <?php include '../includes/footer.php'; ?>
+  <script src="../scripts/get_all_schedules.js"></script>
+
 
 
 

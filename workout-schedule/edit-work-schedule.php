@@ -197,7 +197,8 @@
                         <!-- <h2>Workout Schedule</h2>
                         <h3>Schedule</h3> -->
                         <label>Work Schedule Title <span class="text-danger">*</span> </label>
-                        <input type="text" id="searchBar" class="search-bar" placeholder="Title ...">
+                        <input type="text" id="scheduleTitle" class="search-bar" placeholder="Title ...">
+
 
                         <div id="schedule" class="day-container"></div>
                         <button class="reset-btn" onclick="resetSchedule()">Reset Schedule</button>
@@ -222,10 +223,14 @@
 
   <?php include '../includes/footer.php'; ?>
 
+  <script src="../scripts/get_all_workouts.js"></script>
+<script src="../scripts/edit_work_schedule.js"></script>
+
+
 
 
    
-  <script>
+  <!-- <script>
         const daysOfWeek = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"];
         const workouts = Array.from({ length: 20 }, (_, i) => ({
             name: `Workout ${i + 1}`,
@@ -302,7 +307,7 @@
         }
 
         renderWorkouts();
-    </script>
+    </script> -->
 
 </body>
 

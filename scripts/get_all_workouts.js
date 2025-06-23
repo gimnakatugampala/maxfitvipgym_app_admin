@@ -137,12 +137,24 @@ function setupDroppable(dayDiv, checkbox) {
 }
 
 
+function resetSchedule() {
+    document.querySelectorAll(".day").forEach(day => {
+        // Reset content to show the header only (day name with checkbox)
+        const header = day.querySelector("div"); // first child is the header
+        const checkbox = header.querySelector("input[type='checkbox']");
 
-    function resetSchedule() {
-        document.querySelectorAll(".day").forEach(day => {
-            day.innerHTML = day.dataset.day;
-        });
-    }
+        // Uncheck the checkbox and remove rest-day style
+        checkbox.checked = false;
+        day.classList.remove("rest-day");
+
+        // Remove all other workout elements
+        [...day.querySelectorAll(".workout")].forEach(el => el.remove());
+
+        // Re-apply drag-drop handlers
+        setupDroppable(day, checkbox);
+    });
+}
+
 
     // Attach events and initialize
     searchBar.addEventListener("input", (e) => renderWorkouts(e.target.value));

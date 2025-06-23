@@ -45,6 +45,7 @@ document.addEventListener("DOMContentLoaded", function () {
                 if (data.success) {
                     workouts = data.workouts;
                     renderWorkouts();
+                    initializeScheduleSaveButton(workouts);
                 } else {
                     console.error("Workout fetch failed");
                 }

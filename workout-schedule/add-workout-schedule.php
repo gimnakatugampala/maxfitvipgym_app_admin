@@ -203,9 +203,10 @@
                         <!-- <h2>Workout Schedule</h2>
                         <h3>Schedule</h3> -->
                         <label>Work Schedule Title <span class="text-danger">*</span> </label>
-                        <input type="text" id="searchBar" class="search-bar" placeholder="Title ...">
+                        <input type="text" id="scheduleTitle" class="search-bar" placeholder="Title ...">
 
                         <div id="schedule" class="day-container"></div>
+                        <button id="saveScheduleBtn" class="reset-btn" style="background-color: #28a745;">Save Schedule</button>
                         <button class="reset-btn" onclick="resetSchedule()">Reset Schedule</button>
                     </div>
                 </div>
@@ -231,6 +232,7 @@
 
 
   <script src="../scripts/get_all_workouts.js"></script>
+  <script src="../scripts/add_workout_schedule.js"></script>
    
   <!-- <script>
         const daysOfWeek = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"];

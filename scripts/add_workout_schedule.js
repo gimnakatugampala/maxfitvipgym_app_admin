@@ -67,7 +67,10 @@ function saveSchedule(workoutsData) {
                 title: 'Success!',
                 text: 'Schedule has been saved successfully.',
                 confirmButtonColor: '#28a745'
+            }).then(() => {
+                window.location.href = '../workout-schedule/';
             });
+
         } else {
             Swal.fire({
                 icon: 'error',

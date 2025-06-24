@@ -32,27 +32,35 @@ function renderScheduleWithDetails(details, restDays = []) {
     scheduleDiv.innerHTML = "";
 
     daysOfWeek.forEach(day => {
+        const isRest = restDays.includes(day);
         const dayDiv = document.createElement("div");
         dayDiv.classList.add("day");
         dayDiv.dataset.day = day;
 
-        const headerDiv = document.createElement("div");
-        headerDiv.innerHTML = `
-            <strong>${day}</strong><br>
-            <label>
-                <input type="checkbox" class="rest-checkbox" ${restDays.includes(day) ? "checked" : ""}> Rest Day
+        if (isRest) {
+            dayDiv.classList.add("rest-day");
+        }
+
+        // Day header with rest checkbox
+        const dayHeader = document.createElement("div");
+        dayHeader.innerHTML = `
+            <strong>${day}</strong>
+            <label style="margin-left:10px;">
+                <input type="checkbox" class="rest-toggle" ${isRest ? "checked" : ""}>
+                Rest Day
             </label>
         `;
-        dayDiv.appendChild(headerDiv);
+        dayDiv.appendChild(dayHeader);
 
-        if (restDays.includes(day)) {
-            dayDiv.classList.add("rest-day");
-        } else {
-            const dayWorkouts = details[day] || [];
+        const dayWorkouts = details[day] || [];
 
-            dayDiv.addEventListener("dragover", (e) => e.preventDefault());
-            dayDiv.addEventListener("drop", handleDrop);
+        // Drag-and-drop setup
+        dayDiv.addEventListener("dragover", (e) => {
+            if (!dayDiv.classList.contains("rest-day")) e.preventDefault();
+        });
+        dayDiv.addEventListener("drop", handleDrop);
 
+        if (!isRest) {
             dayWorkouts.forEach(workout => {
                 const workoutDiv = document.createElement("div");
                 workoutDiv.classList.add("workout");
@@ -60,7 +68,7 @@ function renderScheduleWithDetails(details, restDays = []) {
                 const isTimeBased = parseInt(workout.duration_minutes) > 0;
 
                 workoutDiv.innerHTML = `
-                    <div style="display: flex; align-items: center; gap: 10px;">
+                    <div style="display:flex;align-items:center;gap:10px;">
                         <img src="${workout.workout_img}" alt="${workout.workout_name}" width="40" height="40">
                         <span>${workout.workout_name}</span>
                     </div>
@@ -70,7 +78,8 @@ function renderScheduleWithDetails(details, restDays = []) {
                             : `
                                 <input type="number" placeholder="Sets" value="${workout.sets}">
                                 <input type="number" placeholder="Reps" value="${workout.reps}">
-                              `}
+                              `
+                        }
                     </div>
                     <button class="delete-btn">×</button>
                 `;
@@ -80,19 +89,23 @@ function renderScheduleWithDetails(details, restDays = []) {
             });
         }
 
-        // Handle Rest Day toggle
-        dayDiv.querySelector(".rest-checkbox").addEventListener("change", function () {
-            if (this.checked) {
+        // Toggle rest day on checkbox change
+        dayHeader.querySelector(".rest-toggle").addEventListener("change", function () {
+            const checked = this.checked;
+            if (checked) {
                 dayDiv.classList.add("rest-day");
+                // Clear existing workouts
                 dayDiv.querySelectorAll(".workout").forEach(w => w.remove());
             } else {
                 dayDiv.classList.remove("rest-day");
+                // Could optionally allow repopulating workouts here
             }
         });
 
         scheduleDiv.appendChild(dayDiv);
     });
 }
+
 
 
 

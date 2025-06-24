@@ -139,18 +139,26 @@ function handleDrop(e) {
     e.currentTarget.appendChild(workoutItem);
 }
 
+function getScheduleIdFromURL() {
+    const urlParams = new URLSearchParams(window.location.search);
+    return urlParams.get("id");
+}
+
 function initializeScheduleSaveButton() {
     const saveBtn = document.getElementById("saveScheduleBtn");
     if (!saveBtn) return;
 
     saveBtn.addEventListener("click", () => {
-        const title = document.getElementById("scheduleTitle").value.trim();
-        const scheduleData = [];
+    const title = document.getElementById("scheduleTitle").value.trim();
+    const scheduleId = getScheduleIdFromURL();
+    const scheduleData = [];
 
-        document.querySelectorAll(".day").forEach(dayDiv => {
-            const day = dayDiv.dataset.day;
-            const workouts = [];
+    document.querySelectorAll(".day").forEach(dayDiv => {
+        const day = dayDiv.dataset.day;
+        const isRest = dayDiv.classList.contains("rest-day");
+        const workouts = [];
 
+        if (!isRest) {
             dayDiv.querySelectorAll(".workout").forEach(workoutDiv => {
                 const name = workoutDiv.querySelector("span").textContent.trim();
                 const inputs = workoutDiv.querySelectorAll("input");
@@ -165,30 +173,39 @@ function initializeScheduleSaveButton() {
 
                 workouts.push({ name, sets, reps, duration });
             });
+        }
 
-            scheduleData.push({ day, workouts });
-        });
-
-        // Submit via fetch to your save API
-        fetch('../api/update_workout_schedule.php', {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({
-                schedule_id: 9, // You must extract this earlier
-                title,
-                schedule: scheduleData
-            })
-        }).then(res => res.json())
-          .then(data => {
-              if (data.status === "success") {
-                  alert("Schedule updated successfully!");
-                  window.location.href = "workout_schedule_list.php";
-              } else {
-                  alert("Error updating schedule");
-              }
-          }).catch(err => {
-              console.error("Error:", err);
-              alert("Request failed");
-          });
+        scheduleData.push({ day, workouts });
     });
+
+    console.log(parseInt(scheduleId))
+    console.log(scheduleData)
+    console.log(title)
+
+    fetch('../api/update_workout_schedule.php', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+            schedule_id: parseInt(scheduleId),
+            title,
+            schedule: scheduleData
+        })
+    })
+    .then(res => res.json())
+    .then(data => {
+        // if (data.status === "success") {
+        //     alert("Schedule updated successfully!");
+        //     window.location.href = "workout_schedule_list.php";
+        // } else {
+        //     alert("Error updating schedule: " + data.message);
+        // }
+
+        console.log(data)
+    })
+    .catch(err => {
+        console.error("Request failed:", err);
+        // alert("Failed to update schedule");
+    });
+});
+
 }

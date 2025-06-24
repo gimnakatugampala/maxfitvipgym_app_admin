@@ -9,34 +9,34 @@ document.addEventListener("DOMContentLoaded", () => {
 
     fetch(`../api/get_edit_workout_schedule.php?id=${scheduleId}`)
         .then(res => res.json())
-        .then(data => {
-            if (data.status === "success") {
-                document.getElementById("scheduleTitle").value = data.schedule.title;
-                renderScheduleWithDetails(data.details);
-            } else {
-                alert("Failed to load schedule");
-            }
-        })
+      .then(data => {
+                if (data.success) {
+                    document.getElementById("scheduleTitle").value = data.schedule.title;
+                    renderScheduleWithDetails(data.schedule_details, data.rest_days);
+                } else {
+                    alert("Failed to load schedule");
+                }
+            })
+
         .catch(err => {
             console.error("Fetch error:", err);
             alert("Error loading schedule");
         });
 });
 
-function renderScheduleWithDetails(details) {
+function renderScheduleWithDetails(scheduleDetails, restDays) {
     const daysOfWeek = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"];
     const scheduleDiv = document.getElementById("schedule");
-    scheduleDiv.innerHTML = ""; // Clear previous
+    scheduleDiv.innerHTML = "";
 
     daysOfWeek.forEach(day => {
         const dayDiv = document.createElement("div");
         dayDiv.classList.add("day");
         dayDiv.dataset.day = day;
 
-        const dayWorkouts = details.filter(d => d.day_name === day);
+        const workouts = scheduleDetails[day] || [];
 
-        // Check if rest day
-        if (dayWorkouts.length === 0) {
+        if (restDays.includes(day)) {
             dayDiv.classList.add("rest-day");
             dayDiv.innerHTML = `<strong>${day}</strong><br><em>Rest Day</em>`;
         } else {
@@ -47,14 +47,14 @@ function renderScheduleWithDetails(details) {
             dayDiv.addEventListener("dragover", (e) => e.preventDefault());
             dayDiv.addEventListener("drop", handleDrop);
 
-            dayWorkouts.forEach(workout => {
+            workouts.forEach(workout => {
                 const workoutDiv = document.createElement("div");
                 workoutDiv.classList.add("workout");
 
                 const isTimeBased = workout.duration_minutes > 0;
 
                 workoutDiv.innerHTML = `
-                    <div><span>${workout.workout_name}</span></div>
+                    <div><span>${workout.workout_name || 'Unnamed Workout'}</span></div>
                     <div>
                         ${isTimeBased
                             ? `<input type="number" placeholder="Minutes" value="${workout.duration_minutes}">`
@@ -76,6 +76,7 @@ function renderScheduleWithDetails(details) {
         scheduleDiv.appendChild(dayDiv);
     });
 }
+
 
 function handleDrop(e) {
     e.preventDefault();
@@ -135,7 +136,7 @@ function initializeScheduleSaveButton() {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({
-                schedule_id: SCHEDULE_ID_FROM_URL, // You must extract this earlier
+                schedule_id: 9, // You must extract this earlier
                 title,
                 schedule: scheduleData
             })

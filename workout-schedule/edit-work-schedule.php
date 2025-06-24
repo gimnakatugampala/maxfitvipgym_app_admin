@@ -12,7 +12,7 @@
 
     <style>
 
-        .workout-section {
+           .workout-section {
             overflow-x: auto;
             white-space: nowrap;
             padding-bottom: 10px;
@@ -125,6 +125,55 @@
         .reset-btn:hover {
             background-color: #c82333;
         }
+        .rest-day {
+    background-color: #f8d7da;
+    opacity: 0.6;
+    pointer-events: none;
+}
+
+.button-group {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    margin-top: 20px;
+}
+
+.action-btn {
+    padding: 10px 20px;
+    font-size: 16px;
+    border: none;
+    border-radius: 8px;
+    color: white;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.action-btn i {
+    font-size: 18px;
+}
+
+.action-btn.save {
+    background-color: #28a745;
+}
+
+.action-btn.save:hover {
+    background-color: #218838;
+    transform: scale(1.05);
+}
+
+.action-btn.reset {
+    background-color: #dc3545;
+}
+
+.action-btn.reset:hover {
+    background-color: #c82333;
+    transform: scale(1.05);
+}
+
     </style>
 
 
@@ -201,7 +250,14 @@
 
 
                         <div id="schedule" class="day-container"></div>
-                        <button class="reset-btn" onclick="resetSchedule()">Reset Schedule</button>
+                        <div class="button-group">
+                        <button id="saveScheduleBtn" class="action-btn save">
+                            <i class="fa fa-check-circle"></i> Update Schedule
+                        </button>
+                        <button class="action-btn reset" onclick="resetSchedule()">
+                            <i class="fa fa-undo"></i> Reset
+                        </button>
+                    </div>
                     </div>
                 </div>
 

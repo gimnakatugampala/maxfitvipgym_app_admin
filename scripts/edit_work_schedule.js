@@ -10,21 +10,23 @@ document.addEventListener("DOMContentLoaded", () => {
     fetch(`../api/get_edit_workout_schedule.php?id=${scheduleId}`)
         .then(res => res.json())
       .then(data => {
-                if (data.success) {
+                            
+                if (data.status === 'success') {
                     document.getElementById("scheduleTitle").value = data.schedule.title;
-                    renderScheduleWithDetails(data.schedule_details, data.rest_days);
-                } else {
+                    renderScheduleWithDetails(data.details, data.rest_days); // ✅ correct
+                }else {
                     alert("Failed to load schedule");
                 }
+                console.log(data)
             })
 
         .catch(err => {
             console.error("Fetch error:", err);
-            alert("Error loading schedule");
+            // alert("Error loading schedule");
         });
 });
 
-function renderScheduleWithDetails(scheduleDetails, restDays) {
+function renderScheduleWithDetails(details, restDays = []) {
     const daysOfWeek = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"];
     const scheduleDiv = document.getElementById("schedule");
     scheduleDiv.innerHTML = "";
@@ -34,48 +36,65 @@ function renderScheduleWithDetails(scheduleDetails, restDays) {
         dayDiv.classList.add("day");
         dayDiv.dataset.day = day;
 
-        const workouts = scheduleDetails[day] || [];
+        const headerDiv = document.createElement("div");
+        headerDiv.innerHTML = `
+            <strong>${day}</strong><br>
+            <label>
+                <input type="checkbox" class="rest-checkbox" ${restDays.includes(day) ? "checked" : ""}> Rest Day
+            </label>
+        `;
+        dayDiv.appendChild(headerDiv);
 
         if (restDays.includes(day)) {
             dayDiv.classList.add("rest-day");
-            dayDiv.innerHTML = `<strong>${day}</strong><br><em>Rest Day</em>`;
         } else {
-            const dayHeader = document.createElement("div");
-            dayHeader.innerHTML = `<strong>${day}</strong>`;
-            dayDiv.appendChild(dayHeader);
+            const dayWorkouts = details[day] || [];
 
             dayDiv.addEventListener("dragover", (e) => e.preventDefault());
             dayDiv.addEventListener("drop", handleDrop);
 
-            workouts.forEach(workout => {
+            dayWorkouts.forEach(workout => {
                 const workoutDiv = document.createElement("div");
                 workoutDiv.classList.add("workout");
 
-                const isTimeBased = workout.duration_minutes > 0;
+                const isTimeBased = parseInt(workout.duration_minutes) > 0;
 
                 workoutDiv.innerHTML = `
-                    <div><span>${workout.workout_name || 'Unnamed Workout'}</span></div>
+                    <div style="display: flex; align-items: center; gap: 10px;">
+                        <img src="${workout.workout_img}" alt="${workout.workout_name}" width="40" height="40">
+                        <span>${workout.workout_name}</span>
+                    </div>
                     <div>
                         ${isTimeBased
                             ? `<input type="number" placeholder="Minutes" value="${workout.duration_minutes}">`
                             : `
                                 <input type="number" placeholder="Sets" value="${workout.sets}">
                                 <input type="number" placeholder="Reps" value="${workout.reps}">
-                              `
-                        }
+                              `}
                     </div>
                     <button class="delete-btn">×</button>
                 `;
 
                 workoutDiv.querySelector(".delete-btn").addEventListener("click", () => workoutDiv.remove());
-
                 dayDiv.appendChild(workoutDiv);
             });
         }
 
+        // Handle Rest Day toggle
+        dayDiv.querySelector(".rest-checkbox").addEventListener("change", function () {
+            if (this.checked) {
+                dayDiv.classList.add("rest-day");
+                dayDiv.querySelectorAll(".workout").forEach(w => w.remove());
+            } else {
+                dayDiv.classList.remove("rest-day");
+            }
+        });
+
         scheduleDiv.appendChild(dayDiv);
     });
 }
+
+
 
 
 function handleDrop(e) {
@@ -86,7 +105,8 @@ function handleDrop(e) {
     workoutItem.classList.add("workout");
 
     workoutItem.innerHTML = `
-        <div><span>${workoutData.name}</span></div>
+    
+        <div><img src="${workoutData.workout_img}" alt="${workoutData.name}" /><span>${workoutData.name}</span></div>
         <div>
             ${workoutData.type === "time"
                 ? `<input type="number" placeholder="Minutes">`

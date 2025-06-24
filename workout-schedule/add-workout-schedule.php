@@ -251,13 +251,13 @@
 
                         <div id="schedule" class="day-container"></div>
                        <div class="button-group">
-    <button id="saveScheduleBtn" class="action-btn save">
-        <i class="fa fa-check-circle"></i> Save Schedule
-    </button>
-    <button class="action-btn reset" onclick="resetSchedule()">
-        <i class="fa fa-undo"></i> Reset
-    </button>
-</div>
+                        <button id="saveScheduleBtn" class="action-btn save">
+                            <i class="fa fa-check-circle"></i> Save Schedule
+                        </button>
+                        <button class="action-btn reset" onclick="resetSchedule()">
+                            <i class="fa fa-undo"></i> Reset
+                        </button>
+                    </div>
 
                     </div>
                 </div>

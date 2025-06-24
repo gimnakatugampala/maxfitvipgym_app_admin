@@ -113,22 +113,27 @@ function renderScheduleWithDetails(details, restDays = []) {
 function handleDrop(e) {
     e.preventDefault();
     const workoutData = JSON.parse(e.dataTransfer.getData("text/plain"));
+    const imgSrc = workoutData.image || 'https://via.placeholder.com/40';
 
     const workoutItem = document.createElement("div");
     workoutItem.classList.add("workout");
 
     workoutItem.innerHTML = `
-    
-        <div><img src="${workoutData.workout_img}" alt="${workoutData.name}" /><span>${workoutData.name}</span></div>
+        <div style="display:flex;align-items:center;gap:10px;">
+            <img src="${imgSrc}" alt="${workoutData.name}" width="40" height="40" style="border-radius:5px;">
+            <span>${workoutData.name}</span>
+        </div>
         <div>
             ${workoutData.type === "time"
                 ? `<input type="number" placeholder="Minutes">`
-                : `<input type="number" placeholder="Sets"><input type="number" placeholder="Reps">`
+                : `
+                    <input type="number" placeholder="Sets">
+                    <input type="number" placeholder="Reps">
+                `
             }
         </div>
         <button class="delete-btn">×</button>
     `;
-
     workoutItem.querySelector(".delete-btn").addEventListener("click", () => workoutItem.remove());
 
     e.currentTarget.appendChild(workoutItem);

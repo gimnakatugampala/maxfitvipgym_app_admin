@@ -3,7 +3,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const scheduleId = urlParams.get("id");
 
     if (!scheduleId) {
-        alert("Schedule ID missing");
+        Swal.fire("Error", "Schedule ID missing", "error");
         return;
     }
 
@@ -14,11 +14,12 @@ document.addEventListener("DOMContentLoaded", () => {
                 document.getElementById("scheduleTitle").value = data.schedule.title;
                 renderScheduleWithDetails(data.details, data.rest_days);
             } else {
-                alert("Failed to load schedule");
+                Swal.fire("Failed", "Failed to load schedule", "error");
             }
         })
         .catch(err => {
             console.error("Fetch error:", err);
+            Swal.fire("Error", "Error loading schedule", "error");
         });
 });
 
@@ -181,14 +182,20 @@ function initializeScheduleSaveButton() {
         .then(res => res.json())
         .then(data => {
             if (data.status === "success") {
-                alert("Schedule updated successfully!");
-                window.location.href = "workout_schedule_list.php";
+                Swal.fire({
+                    icon: "success",
+                    title: "Success",
+                    text: "Schedule updated successfully!",
+                }).then(() => {
+                    window.location.href = "../workout-schedule/";
+                });
             } else {
-                alert("Error updating schedule: " + data.message);
+                Swal.fire("Error", data.message || "Error updating schedule", "error");
             }
         })
         .catch(err => {
             console.error("Request failed:", err);
+            Swal.fire("Error", "Failed to update schedule", "error");
         });
     });
 }

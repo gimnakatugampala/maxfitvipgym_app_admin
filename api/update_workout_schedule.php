@@ -88,7 +88,7 @@ try {
                     // Try to lookup workout_id by name if missing
                     $name = $w['name'] ?? null;
                     if ($name) {
-                        $stmt = $conn->prepare("SELECT id FROM workouts WHERE name = ? LIMIT 1");
+                        $stmt = $conn->prepare("SELECT id FROM workout WHERE name = ? LIMIT 1");
                         $stmt->bind_param("s", $name);
                         $stmt->execute();
                         $stmt->bind_result($resolved_id);

@@ -33,11 +33,7 @@ $conn->begin_transaction();
 
 try {
     // Update schedule title
-    $updateStmt = $conn->prepare("
-        UPDATE work_schedule
-        SET title = ?, updated_at = NOW()
-        WHERE id = ?
-    ");
+    $updateStmt = $conn->prepare("UPDATE work_schedule SET title = ?, updated_at = NOW() WHERE id = ?");
     $updateStmt->bind_param("si", $title, $schedule_id);
     $updateStmt->execute();
     $updateStmt->close();
@@ -49,55 +45,80 @@ try {
     $deleteStmt->close();
 
     // Prepare insert statement
-    $insertStmt = $conn->prepare("
-        INSERT INTO workout_schedule_details (
-            schedule_id, day_id, workout_id, order_index,
-            set_no, rep_no, duration_minutes, is_rest_day
-        ) VALUES (?, ?, ?, ?, ?, ?, ?, ?)
-    ");
+    $insertStmt = $conn->prepare("INSERT INTO workout_schedule_details (
+        schedule_id, day_id, workout_id, order_index,
+        set_no, rep_no, duration_minutes, is_rest_day
+    ) VALUES (?, ?, ?, ?, ?, ?, ?, ?)");
 
     foreach ($schedule as $dayData) {
-        $dayName  = $dayData['day'];
+        $dayName  = $dayData['day'] ?? null;
         $dayId    = $dayMap[$dayName] ?? null;
-        $workouts = $dayData['workouts'];
+        $workouts = $dayData['workouts'] ?? [];
 
         if (!$dayId) continue;
 
         if (empty($workouts)) {
-            // Insert rest day
+            // Insert rest day with empty/null values
+            $workout_id       = null;
+            $order_index      = null;
+            $set_no           = "";
+            $rep_no           = "";
+            $duration_minutes = "";
+            $is_rest_day      = 1;
+
             $insertStmt->bind_param(
                 "iiiisssi",
                 $schedule_id,
                 $dayId,
-                $null = null,
-                $null = null,
-                $empty = "",
-                $empty,
-                $empty,
-                $isRest = 1
+                $workout_id,
+                $order_index,
+                $set_no,
+                $rep_no,
+                $duration_minutes,
+                $is_rest_day
             );
             $insertStmt->execute();
         } else {
-            $order = 0;
+            $order_index = 0;
             foreach ($workouts as $w) {
-                $workout_id = isset($w['workout_id']) ? intval($w['workout_id']) : null;
-                $sets       = isset($w['sets']) ? $w['sets'] : "";
-                $reps       = isset($w['reps']) ? $w['reps'] : "";
-                $duration   = isset($w['duration']) ? $w['duration'] : "";
+                if (!isset($w['workout_id'])) {
+                    // Try to lookup workout_id by name if missing
+                    $name = $w['name'] ?? null;
+                    if ($name) {
+                        $stmt = $conn->prepare("SELECT id FROM workout WHERE name = ? LIMIT 1");
+                        $stmt->bind_param("s", $name);
+                        $stmt->execute();
+                        $stmt->bind_result($resolved_id);
+                        if ($stmt->fetch()) {
+                            $w['workout_id'] = $resolved_id;
+                        }
+                        $stmt->close();
+                    }
+                }
+
+                if (!isset($w['workout_id'])) {
+                    throw new Exception("Missing workout_id for day: $dayName, order: $order_index");
+                }
+
+                $workout_id       = intval($w['workout_id']);
+                $set_no           = $w['sets'] ?? "";
+                $rep_no           = $w['reps'] ?? "";
+                $duration_minutes = $w['duration'] ?? "";
+                $is_rest_day      = 0;
 
                 $insertStmt->bind_param(
                     "iiiisssi",
                     $schedule_id,
                     $dayId,
                     $workout_id,
-                    $order,
-                    $sets,
-                    $reps,
-                    $duration,
-                    $isRest = 0
+                    $order_index,
+                    $set_no,
+                    $rep_no,
+                    $duration_minutes,
+                    $is_rest_day
                 );
                 $insertStmt->execute();
-                $order++;
+                $order_index++;
             }
         }
     }

@@ -9,20 +9,16 @@ document.addEventListener("DOMContentLoaded", () => {
 
     fetch(`../api/get_edit_workout_schedule.php?id=${scheduleId}`)
         .then(res => res.json())
-      .then(data => {
-                            
-                if (data.status === 'success') {
-                    document.getElementById("scheduleTitle").value = data.schedule.title;
-                    renderScheduleWithDetails(data.details, data.rest_days); // ✅ correct
-                }else {
-                    alert("Failed to load schedule");
-                }
-                console.log(data)
-            })
-
+        .then(data => {
+            if (data.status === 'success') {
+                document.getElementById("scheduleTitle").value = data.schedule.title;
+                renderScheduleWithDetails(data.details, data.rest_days);
+            } else {
+                alert("Failed to load schedule");
+            }
+        })
         .catch(err => {
             console.error("Fetch error:", err);
-            // alert("Error loading schedule");
         });
 });
 
@@ -41,7 +37,6 @@ function renderScheduleWithDetails(details, restDays = []) {
             dayDiv.classList.add("rest-day");
         }
 
-        // Day header with rest checkbox
         const dayHeader = document.createElement("div");
         dayHeader.innerHTML = `
             <strong>${day}</strong>
@@ -54,8 +49,7 @@ function renderScheduleWithDetails(details, restDays = []) {
 
         const dayWorkouts = details[day] || [];
 
-        // Drag-and-drop setup
-        dayDiv.addEventListener("dragover", (e) => {
+        dayDiv.addEventListener("dragover", e => {
             if (!dayDiv.classList.contains("rest-day")) e.preventDefault();
         });
         dayDiv.addEventListener("drop", handleDrop);
@@ -64,6 +58,7 @@ function renderScheduleWithDetails(details, restDays = []) {
             dayWorkouts.forEach(workout => {
                 const workoutDiv = document.createElement("div");
                 workoutDiv.classList.add("workout");
+                workoutDiv.dataset.workoutId = workout.workout_id;
 
                 const isTimeBased = parseInt(workout.duration_minutes) > 0;
 
@@ -89,26 +84,19 @@ function renderScheduleWithDetails(details, restDays = []) {
             });
         }
 
-        // Toggle rest day on checkbox change
         dayHeader.querySelector(".rest-toggle").addEventListener("change", function () {
             const checked = this.checked;
             if (checked) {
                 dayDiv.classList.add("rest-day");
-                // Clear existing workouts
                 dayDiv.querySelectorAll(".workout").forEach(w => w.remove());
             } else {
                 dayDiv.classList.remove("rest-day");
-                // Could optionally allow repopulating workouts here
             }
         });
 
         scheduleDiv.appendChild(dayDiv);
     });
 }
-
-
-
-
 
 function handleDrop(e) {
     e.preventDefault();
@@ -117,6 +105,7 @@ function handleDrop(e) {
 
     const workoutItem = document.createElement("div");
     workoutItem.classList.add("workout");
+    workoutItem.dataset.workoutId = workoutData.workout_id || 0;
 
     workoutItem.innerHTML = `
         <div style="display:flex;align-items:center;gap:10px;">
@@ -149,63 +138,59 @@ function initializeScheduleSaveButton() {
     if (!saveBtn) return;
 
     saveBtn.addEventListener("click", () => {
-    const title = document.getElementById("scheduleTitle").value.trim();
-    const scheduleId = getScheduleIdFromURL();
-    const scheduleData = [];
+        const title = document.getElementById("scheduleTitle").value.trim();
+        const scheduleId = getScheduleIdFromURL();
+        const scheduleData = [];
 
-    document.querySelectorAll(".day").forEach(dayDiv => {
-        const day = dayDiv.dataset.day;
-        const isRest = dayDiv.classList.contains("rest-day");
-        const workouts = [];
+        document.querySelectorAll(".day").forEach(dayDiv => {
+            const day = dayDiv.dataset.day;
+            const isRest = dayDiv.classList.contains("rest-day");
+            const workouts = [];
 
-        if (!isRest) {
-            dayDiv.querySelectorAll(".workout").forEach(workoutDiv => {
-                const name = workoutDiv.querySelector("span").textContent.trim();
-                const inputs = workoutDiv.querySelectorAll("input");
-                let sets = 0, reps = 0, duration = 0;
+            if (!isRest) {
+                dayDiv.querySelectorAll(".workout").forEach(workoutDiv => {
+                    const name = workoutDiv.querySelector("span").textContent.trim();
+                    const inputs = workoutDiv.querySelectorAll("input");
+                    const workout_id = parseInt(workoutDiv.dataset.workoutId) || null;
 
-                if (inputs.length === 1) {
-                    duration = parseInt(inputs[0].value) || 0;
-                } else if (inputs.length === 2) {
-                    sets = parseInt(inputs[0].value) || 0;
-                    reps = parseInt(inputs[1].value) || 0;
-                }
+                    let sets = 0, reps = 0, duration = 0;
 
-                workouts.push({ name, sets, reps, duration });
-            });
-        }
+                    if (inputs.length === 1) {
+                        duration = parseInt(inputs[0].value) || 0;
+                    } else if (inputs.length === 2) {
+                        sets = parseInt(inputs[0].value) || 0;
+                        reps = parseInt(inputs[1].value) || 0;
+                    }
 
-        scheduleData.push({ day, workouts });
-    });
+                    workouts.push({ workout_id, name, sets, reps, duration });
+                });
+            }
 
-    console.log(parseInt(scheduleId))
-    console.log(scheduleData)
-    console.log(title)
+            scheduleData.push({ day, workouts });
+        });
 
-    fetch('../api/update_workout_schedule.php', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({
-            schedule_id: parseInt(scheduleId),
-            title,
-            schedule: scheduleData
+        fetch('../api/update_workout_schedule.php', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({
+                schedule_id: parseInt(scheduleId),
+                title,
+                schedule: scheduleData
+            })
         })
-    })
-    .then(res => res.json())
-    .then(data => {
-        // if (data.status === "success") {
-        //     alert("Schedule updated successfully!");
-        //     window.location.href = "workout_schedule_list.php";
-        // } else {
-        //     alert("Error updating schedule: " + data.message);
-        // }
-
-        console.log(data)
-    })
-    .catch(err => {
-        console.error("Request failed:", err);
-        // alert("Failed to update schedule");
+        .then(res => res.json())
+        .then(data => {
+            if (data.status === "success") {
+                alert("Schedule updated successfully!");
+                window.location.href = "workout_schedule_list.php";
+            } else {
+                alert("Error updating schedule: " + data.message);
+            }
+        })
+        .catch(err => {
+            console.error("Request failed:", err);
+        });
     });
-});
-
 }
+
+initializeScheduleSaveButton();

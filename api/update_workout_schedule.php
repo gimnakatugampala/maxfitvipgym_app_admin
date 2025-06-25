@@ -50,20 +50,23 @@ try {
         set_no, rep_no, duration_minutes, is_rest_day
     ) VALUES (?, ?, ?, ?, ?, ?, ?, ?)");
 
+    $addedDays = [];
+
     foreach ($schedule as $dayData) {
         $dayName  = $dayData['day'] ?? null;
         $dayId    = $dayMap[$dayName] ?? null;
         $workouts = $dayData['workouts'] ?? [];
 
-        if (!$dayId) continue;
+        if (!$dayId || in_array($dayId, $addedDays)) continue;
+        $addedDays[] = $dayId;
 
         if (empty($workouts)) {
             // Insert rest day with empty/null values
             $workout_id       = null;
             $order_index      = null;
-            $set_no           = "";
-            $rep_no           = "";
-            $duration_minutes = "";
+            $set_no           = null;
+            $rep_no           = null;
+            $duration_minutes = null;
             $is_rest_day      = 1;
 
             $insertStmt->bind_param(
@@ -79,13 +82,13 @@ try {
             );
             $insertStmt->execute();
         } else {
-            $order_index = 0;
+            $order_index = 1;
             foreach ($workouts as $w) {
                 if (!isset($w['workout_id'])) {
                     // Try to lookup workout_id by name if missing
                     $name = $w['name'] ?? null;
                     if ($name) {
-                        $stmt = $conn->prepare("SELECT id FROM workout WHERE name = ? LIMIT 1");
+                        $stmt = $conn->prepare("SELECT id FROM workouts WHERE name = ? LIMIT 1");
                         $stmt->bind_param("s", $name);
                         $stmt->execute();
                         $stmt->bind_result($resolved_id);
@@ -100,10 +103,12 @@ try {
                     throw new Exception("Missing workout_id for day: $dayName, order: $order_index");
                 }
 
-                $workout_id       = intval($w['workout_id']);
-                $set_no           = $w['sets'] ?? "";
-                $rep_no           = $w['reps'] ?? "";
-                $duration_minutes = $w['duration'] ?? "";
+                $workout_id = intval($w['workout_id']);
+                $isTimeBased = isset($w['duration']) && $w['duration'] !== "" && intval($w['duration']) > 0;
+
+                $set_no           = $isTimeBased ? null : ((isset($w['sets']) && $w['sets'] !== "") ? $w['sets'] : null);
+                $rep_no           = $isTimeBased ? null : ((isset($w['reps']) && $w['reps'] !== "") ? $w['reps'] : null);
+                $duration_minutes = $isTimeBased ? $w['duration'] : null;
                 $is_rest_day      = 0;
 
                 $insertStmt->bind_param(
